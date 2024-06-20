@@ -18,7 +18,7 @@ public class SummonManager : MonoBehaviour
         summonButton.onClick.AddListener(SummonUnit);
     }
 
-    void SummonUnit()
+    public void SummonUnit()
     {
         // 소환 비용이 충분하지 않은 경우를 먼저 처리
         if (playerGold < cost)
