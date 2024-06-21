@@ -9,12 +9,12 @@ public class BossMonster : MonoBehaviour
     private int currentIndex = 0;
     private MonsterManager monsterManager;
 
-    //public int health = 100;
-    //public float timeLimit = 30f; // 30초제한
+    public int health = 100;
+    public float timeLimit = 30f; // 30초제한
 
     private void Start()
     {
-        //StartCoroutine(StartTimer()); // 타이머 ㄱㄱ
+        StartCoroutine(StartTimer()); // 타이머
     }
 
     public void Setup(Transform[] wayPoints)
@@ -57,32 +57,32 @@ public class BossMonster : MonoBehaviour
         }
     }
 
-    //public void TakeDamage(int damage)
-    //{
-        //health -= damage;
-        //if (health <= 0)
-        //{
-            //Die();
-        //}
-    //}
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
 
-    //private void Die()
-    //{
-        // StopAllCoroutines(); // 모든 코루틴 중지
-        //Destroy(gameObject);
-    //}
+    private void Die()
+    {
+        StopAllCoroutines(); // 모든 코루틴 중지
+        Destroy(gameObject);
+    }
 
-    //private IEnumerator StartTimer()
-    //{
-        //yield return new WaitForSeconds(timeLimit); // 30초 기달
-        //if (health > 0)
-        //{
+    private IEnumerator StartTimer()
+    {
+        yield return new WaitForSeconds(timeLimit); // 30초 기달
+        if (health > 0)
+        {
             //GameOver(); // 게임 오버 처리
-        //}
-    //}
+        }
+    }
 
-   // private void GameOver()
+    //private void GameOver()
     //{
-        //SceneManager.LoadScene("Lobby"); // 로비 이동
+    //    SceneManager.LoadScene("Lobby"); // 로비 이동
     //}
 }
