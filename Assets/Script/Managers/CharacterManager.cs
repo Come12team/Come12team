@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CharacterManager : MonoBehaviour
 {
     public List<CharacterData> availableCharacters; // 가챠에서 사용할 캐릭터 목록
     public List<Character> ownedCharacters; // 소유한 캐릭터 목록
-    public int gachaCost;
-    public int gachaTickets;
+    public FusionManager fusionManager; // 합성 UI 매니저
 
     // 캐릭터를 소유 목록에 추가하는 메서드
     public void AddCharacter(Character character)
@@ -15,42 +15,23 @@ public class CharacterManager : MonoBehaviour
         ownedCharacters.Add(character);
     }
 
-    // 가챠를 통해 캐릭터를 뽑는 메서드
-    public CharacterData RollGacha()
+    // 유닛 이름으로 캐릭터 데이터 가져오기
+    public CharacterData GetCharacterDataByName(string unitName)
     {
-        if (!UseGachaTicket())
+        foreach (var characterData in availableCharacters)
         {
-            Debug.Log("Not enough gacha tickets.");
-            return null;
+            if (characterData.characterName == unitName)
+            {
+                return characterData;
+            }
         }
-
-        // 랜덤으로 캐릭터 선택
-        int randomIndex = Random.Range(0, availableCharacters.Count);
-        CharacterData newCharacter = availableCharacters[randomIndex];
-        AddCharacter(CreateCharacter(newCharacter));
-
-        return newCharacter;
+        return null;
     }
 
-    // 캐릭터 데이터로 새 캐릭터를 생성하는 메서드
-    public Character CreateCharacter(CharacterData characterData)
+    // 합성 UI를 띄우는 메서드
+    public void ShowFusionUI(Character character)
     {
-        GameObject characterObject = new GameObject(characterData.characterName);
-        Character newCharacter = characterObject.AddComponent<Character>();
-        newCharacter.characterData = characterData;
-        newCharacter.InitializeCharacter();
-        return newCharacter;
-    }
-
-    // 가챠 티켓을 사용하는 메서드
-    public bool UseGachaTicket()
-    {
-        if (gachaTickets > 0)
-        {
-            gachaTickets--;
-            return true;
-        }
-        return false;
+        fusionManager.ShowFusionUI(character);
     }
 
     // 동일한 캐릭터가 특정 수 이상일 때 합성하는 메서드
@@ -64,7 +45,7 @@ public class CharacterManager : MonoBehaviour
     }
 
     // 특정 캐릭터 데이터의 동일한 캐릭터 수를 세는 메서드
-    int CountCharacters(CharacterData characterData)
+    public int CountCharacters(CharacterData characterData)
     {
         int count = 0;
         foreach (Character character in ownedCharacters)
@@ -103,9 +84,54 @@ public class CharacterManager : MonoBehaviour
             Destroy(character.gameObject);
         }
 
-        // 새로운 캐릭터 생성 및 추가
-        Character newCharacter = CreateCharacter(characterData);
-        newCharacter.Upgrade();
-        AddCharacter(newCharacter);
+        // 한 단계 높은 등급의 캐릭터 선택
+        CharacterData newCharacterData = GetRandomHigherGradeCharacter(characterData.grade);
+        if (newCharacterData != null)
+        {
+            // 새로운 캐릭터 생성 및 추가
+            Character newCharacter = CreateCharacter(newCharacterData);
+            AddCharacter(newCharacter);
+        }
+    }
+
+    // 한 단계 높은 등급의 캐릭터를 랜덤으로 선택하는 메서드
+    CharacterData GetRandomHigherGradeCharacter(CharacterGrade currentGrade)
+    {
+        CharacterGrade nextGrade = GetNextGrade(currentGrade);
+        var higherGradeCharacters = availableCharacters.Where(c => c.grade == nextGrade).ToList();
+        if (higherGradeCharacters.Count > 0)
+        {
+            int randomIndex = Random.Range(0, higherGradeCharacters.Count);
+            return higherGradeCharacters[randomIndex];
+        }
+        return null;
+    }
+
+    // 현재 등급의 다음 등급을 반환하는 메서드
+    CharacterGrade GetNextGrade(CharacterGrade grade)
+    {
+        switch (grade)
+        {
+            case CharacterGrade.Normal:
+                return CharacterGrade.Magic;
+            case CharacterGrade.Magic:
+                return CharacterGrade.Hero;
+            case CharacterGrade.Hero:
+                return CharacterGrade.Legendary;
+            case CharacterGrade.Legendary:
+                return CharacterGrade.Mythic;
+            default:
+                return CharacterGrade.Mythic; // 신화 등급 이상은 신화 등급 유지
+        }
+    }
+
+    // 캐릭터 데이터로 새 캐릭터를 생성하는 메서드
+    public Character CreateCharacter(CharacterData characterData)
+    {
+        GameObject characterObject = new GameObject(characterData.characterName);
+        Character newCharacter = characterObject.AddComponent<Character>();
+        newCharacter.characterData = characterData;
+        newCharacter.InitializeCharacter();
+        return newCharacter;
     }
 }
