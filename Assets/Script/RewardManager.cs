@@ -6,9 +6,8 @@ public class RewardManager : MonoBehaviour
 {
     public static RewardManager Instance { get; private set; }
 
-    private Player player;
     private Dictionary<string, int> rewards;
-    private int baseStageCompletionReward = 100;  // 기본 스테이지 클리어 보상
+    private int WaveCompletionReward = 100;  // 웨이브 클리어 보상
     private int currentStage = 1;                 // 현재 스테이지
 
     private void Awake()
@@ -26,21 +25,16 @@ public class RewardManager : MonoBehaviour
         // 보상 초기화
         rewards = new Dictionary<string, int>
         {
-            { "NormalEnemy", 50 },
-            { "BossEnemy", 100 }
+            { "NormalEnemy", 50 }, //잡몹 
+            { "BossEnemy", 100 }   //보스
         };
-    }
-
-    void Start()
-    {
-        player = GameObject.FindObjectOfType<Player>();
     }
 
     public void GiveReward(string enemyType)
     {
         if (rewards.ContainsKey(enemyType))
         {
-            player.AddScore(rewards[enemyType]);
+            MoneyManager.Instance.AddMoney(rewards[enemyType]);
         }
         else
         {
@@ -48,10 +42,24 @@ public class RewardManager : MonoBehaviour
         }
     }
 
-    public void GiveStageCompletionReward()
+    public void GiveWaveCompletionReward()
     {
-        int stageCompletionPoints = baseStageCompletionReward * currentStage;
-        player.AddScore(stageCompletionPoints);
+        int waveCompletionPoints = WaveCompletionReward * currentStage;
+        MoneyManager.Instance.AddMoney(waveCompletionPoints);
         currentStage++;
     }
 }
+
+/* public string enemyType;  // 적의 종류 ("NormalEnemy" 또는 "BossEnemy") // 몬스터매니저에 추가
+ * .
+ * .
+ * .
+ * RewardManager.Instance.GiveReward(enemyType); // 몬스터매니저에 몬스터 죽는로직에 추가
+ * 
+ * 
+ * 
+ * public void OnWaveComplete()
+    {
+        RewardManager.Instance.GiveWaveCompletionReward();  // 게임매니저에 추가
+    }
+*/
