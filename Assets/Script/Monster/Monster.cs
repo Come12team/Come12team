@@ -63,8 +63,9 @@ public class Monster : MonoBehaviour
         }
         else
         {
-            //적 오브젝트 삭제
-            Destroy(gameObject);
+            // 적 오브젝트를 첫 번째 wayPoint로 이동시킴
+            currentIndex = 0;
+            transform.position = wayPoints[currentIndex].position;
         }
     }
 }
