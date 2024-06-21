@@ -163,6 +163,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5065164440776165230, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 405602643}
     - target: {fileID: 7314917499289059700, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
