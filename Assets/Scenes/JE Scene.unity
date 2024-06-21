@@ -412,8 +412,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8393074543838137248, guid: 677cbc6cf226b514fbee3bcef352a6fe, type: 3}
   spwnTime: 0.5
   wayPoints:
-  - {fileID: 2079698943}
-  - {fileID: 608553732}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1807690304
 Transform:
   m_ObjectHideFlags: 0
