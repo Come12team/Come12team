@@ -384,7 +384,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371c264151d824a948c69a92fa2d1e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 0}
+  unitPrefabs:
+  - {fileID: 7030572019482834979, guid: d15f3c8e44ae048cfb1ef3b1aafb5ca1, type: 3}
+  - {fileID: 9181292295600684324, guid: 7913116c65a8542fa9ddb3c54584aefb, type: 3}
+  - {fileID: 1154501894521993531, guid: bf3ad7535a66344c7bef237cdc380214, type: 3}
   spawnArea: {fileID: 1336421889}
   summonButton: {fileID: 219088259}
   cost: 10
