@@ -163,6 +163,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5065164440776165230, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 405602643}
     - target: {fileID: 7314917499289059700, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -248,6 +252,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
+--- !u!114 &219088259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3903085850401581985, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
+  m_PrefabInstance: {fileID: 219088258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &405602641
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,8 +385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 0}
-  spawnArea: {fileID: 0}
-  summonButton: {fileID: 0}
+  spawnArea: {fileID: 1336421889}
+  summonButton: {fileID: 219088259}
   cost: 10
   playerGold: 100
   characterManager: {fileID: 0}
@@ -492,7 +507,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.13377732, y: -0.175769}
+  m_Offset: {x: -0.18603382, y: -0.21801378}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -503,7 +518,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.73244524, y: 0.648879}
+  m_Size: {x: 0.0076020956, y: 0.009103745}
   m_EdgeRadius: 0
 --- !u!4 &1336421890
 Transform:
