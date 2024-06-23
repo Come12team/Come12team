@@ -52,8 +52,8 @@ public class ButtonAction : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         // 구동 환경이 응용프로그램일 경우
-#else
+        #else
             Application.Quit();
-#endif
+        #endif
     }
 }
