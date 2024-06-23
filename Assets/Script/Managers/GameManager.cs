@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public int playerScore;
     public int playerHealth;
 
+    // 플레이 중 여부
+    private bool isPlaying = false;
+
     // 게임 종료 UI 캔버스
     public GameObject gameOverCanvas;
 
@@ -58,7 +61,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void EndGame()
+    // 게임 시작
+    public void GameStart()
+    {
+        isPlaying = true;
+        Time.timeScale = 1f;
+    }
+
+    // 게임 종료
+    public void EndGame()
     {
         Debug.Log("Game Over!");
         // 게임 종료 UI 활성화
@@ -67,5 +78,17 @@ public class GameManager : MonoBehaviour
             gameOverCanvas.SetActive(true);
         }
         // 추가적인 게임 종료 로직
+    }
+
+    // 게임 일시정지
+    public void GamePause()
+    {
+        Time.timeScale = 0f;
+    }
+
+    // 게임 재개
+    public void GamePlay()
+    {
+        Time.timeScale = 1f;
     }
 }
