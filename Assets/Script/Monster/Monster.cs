@@ -10,6 +10,7 @@ public class Monster : MonoBehaviour
     private int currentIndex = 0; //현재 목표지점 인덱스
     private MonsterManager monsterManager; // 오브젝트 이동 제어 
     private int health = 100; // 몬스터 체력
+    private float moveThreshold = 0.02f; // 이동 거리 값
 
     public void Setup(Transform[] wayPoints)
     {
@@ -52,21 +53,22 @@ public class Monster : MonoBehaviour
 
     private void NextMoveTo()
     {
-        // 아직 이동할 wayPoints가 남아있다면
-        if(currentIndex < wayPointCount -1)
+        Vector3 targetPosition = wayPoints[currentIndex].position;
+        if (Vector3.Distance(transform.position, targetPosition) < moveThreshold * monsterManager.MoveSpeed)
         {
-            //적의 위치를 정확하게 목표 위치로 설정
-            transform.position = wayPoints[currentIndex].position;
-            // 이동 방향 설정 => 다음 목표 지점(wayPoints)
-            currentIndex ++;
-            Vector3 direction = (wayPoints[currentIndex].position - transform.position).normalized;
-            monsterManager.MoveTo(direction);
+            currentIndex = (currentIndex + 1) % wayPoints.Length;
+            targetPosition = wayPoints[currentIndex].position;
+            monsterManager.MoveTo((targetPosition - transform.position).normalized);
         }
-        else
+
+        // 방향에 따라 회전을 적용하여 좌우 반전 구현
+        if (targetPosition.x > transform.position.x)
         {
-            // 적 오브젝트를 첫 번째 wayPoint로 이동시킴
-            currentIndex = 0;
-            transform.position = wayPoints[currentIndex].position;
+            transform.rotation = Quaternion.Euler(0, 0, 0); // 기본 방향 (오른쪽을 보도록 회전)
+        }
+        else if (targetPosition.x < transform.position.x)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0); // 좌우 반전 (왼쪽을 보도록 회전)
         }
     }
 
