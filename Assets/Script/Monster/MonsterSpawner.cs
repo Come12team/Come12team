@@ -5,24 +5,24 @@ using UnityEngine;
 public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enemyPrefab; // Àû ÇÁ¸®ÆÕ
+    private GameObject enemyPrefab; // ì  í”„ë¦¬íŒ¹
     [SerializeField]
-    private GameObject bossPrefab; // Àû ÇÁ¸®ÆÕ !!
+    private GameObject bossPrefab; // ì  í”„ë¦¬íŒ¹ !!
     [SerializeField]
-    private float spwnTime; // Àû »ı¼º ÁÖ±â
+    private float spawnerTime; // ì  ìƒì„± ì£¼ê¸°
     [SerializeField]
-    private float bossSpawnDelay = 20f;   // º¸½º »ı¼º !!
+    private float bossSpawnDelay = 20f;   // ë³´ìŠ¤ ìƒì„± !!
     [SerializeField]
-    private Transform[] wayPoints; // ÇöÀç ½ºÅ×ÀÌÁöÀÇ ÀÌµ¿ °æ·Î
+    private Transform[] wayPoints; // í˜„ì¬ ìŠ¤í…Œì´ì§€ì˜ ì´ë™ ê²½ë¡œ
 
-    private bool bossSpawned = false; // º¸½º°¡ »ı¼ºµÇ¾ú´ÂÁö !!
+    private bool bossSpawned = false; // ë³´ìŠ¤ê°€ ìƒì„±ë˜ì—ˆëŠ”ì§€ !!
 
-    private int enemyCount = 0; // »ı¼ºµÈ ÀûÀÇ °³¼ö
+    private int enemyCount = 0; // ìƒì„±ëœ ì ì˜ ê°œìˆ˜
 
 
     private void Awake()
     {
-        //Àû »ı¼º ÄÚ·çÆ¾ ÇÔ¼ö È£Ãâ
+        //ì  ìƒì„± ì½”ë£¨í‹´ í•¨ìˆ˜ í˜¸ì¶œ
         StartCoroutine("SpawnEnemy");
         StartCoroutine("SpawnBoss"); //!!
     }
@@ -31,18 +31,18 @@ public class MonsterSpawner : MonoBehaviour
     {
         while (enemyCount < 10)
         {
-            GameObject clone = Instantiate(enemyPrefab);     // Àû ¿ÀºêÁ§Æ® »ı¼º
-            Monster monster = clone.GetComponent<Monster>(); // ¹æ±İ »ı¼ºµÈ ÀûÀÇ Enemy ÄÄÆ÷³ÍÆ®
+            GameObject clone = Instantiate(enemyPrefab);     // ì  ì˜¤ë¸Œì íŠ¸ ìƒì„±
+            Monster monster = clone.GetComponent<Monster>(); // ë°©ê¸ˆ ìƒì„±ëœ ì ì˜ Enemy ì»´í¬ë„ŒíŠ¸
 
-            monster.Setup(wayPoints);                          // wayPoint Á¤º¸¸¦ ¸Å°³º¯¼ö·Î Setup() È£Ãâ
+            monster.Setup(wayPoints);                          // wayPoint ì •ë³´ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ Setup() í˜¸ì¶œ
 
-            enemyCount++;                                      // »ı¼ºµÈ Àû °³¼ö Áõ°¡
+            enemyCount++;                                      // ìƒì„±ëœ ì  ê°œìˆ˜ ì¦ê°€
 
-            yield return new WaitForSeconds(spwnTime);      // spawnTime ½Ã°£ µ¿¾È ´ë±â
+            yield return new WaitForSeconds(spawnerTime);      // spawnTime ì‹œê°„ ë™ì•ˆ ëŒ€ê¸°
         }
     }
 
-    private IEnumerator SpawnBoss() // º¸½º°¡ »ı¼º µÇ°í »ı¼ºÀÌ µÇ¾ú´Ù¸é ÇÑ¹ø¸¸»ı¼ºÇÏ°Ô µÊ!!
+    private IEnumerator SpawnBoss() // ë³´ìŠ¤ê°€ ìƒì„± ë˜ê³  ìƒì„±ì´ ë˜ì—ˆë‹¤ë©´ í•œë²ˆë§Œìƒì„±í•˜ê²Œ ë¨!!
     {
         yield return new WaitForSeconds(bossSpawnDelay);
 
@@ -50,7 +50,8 @@ public class MonsterSpawner : MonoBehaviour
         BossMonster boss = bossClone.GetComponent<BossMonster>();
         boss.Setup(wayPoints); 
 
-        bossSpawned = true;         
+        bossSpawned = true;       
+        
     }
 
 }
