@@ -17,6 +17,8 @@ public class MonsterSpawner : MonoBehaviour
 
     private bool bossSpawned = false; // 보스가 생성되었는지 !!
 
+    private int enemyCount = 0; // 생성된 적의 개수
+
 
     private void Awake()
     {
@@ -27,12 +29,14 @@ public class MonsterSpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemy()
     {
-        while (true)
+        while (enemyCount < 10)
         {
             GameObject clone = Instantiate(enemyPrefab);     // 적 오브젝트 생성
             Monster monster = clone.GetComponent<Monster>(); // 방금 생성된 적의 Enemy 컴포넌트
 
             monster.Setup(wayPoints);                          // wayPoint 정보를 매개변수로 Setup() 호출
+
+            enemyCount++;                                      // 생성된 적 개수 증가
 
             yield return new WaitForSeconds(spwnTime);      // spawnTime 시간 동안 대기
         }
