@@ -1,24 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonAction : MonoBehaviour
 {
     [SerializeField] private GameObject StopPanel;
 
-    // °ÔÀÓ ½ÃÀÛ ¹öÆ°
+    // ê²Œì„ ì‹œì‘ ë²„íŠ¼
     public void GameStart()
     {
         GameManager.Instance.GameStart();
     }
 
-    // °ÔÀÓ Á¾·á ¹öÆ°
+    // ê²Œì„ ì¢…ë£Œ ë²„íŠ¼
     public void EndGame()
     {
         GameManager.Instance.EndGame();
     }
 
-    // ÀÏ½ÃÁ¤Áö ¹öÆ°
+    // ì¼ì‹œì •ì§€ ë²„íŠ¼
     public void GamePauseOrPlay()
     {
         if (StopPanel == null) return;
@@ -34,7 +35,7 @@ public class ButtonAction : MonoBehaviour
         }
     }
 
-    // ÆÇ³Ú È°¼ºÈ­ (panel = È°¼ºÈ­ÇÒ ÆÇ³Ú ¿ÀºêÁ§Æ®)
+    // íŒë„¬ í™œì„±í™” (panel = í™œì„±í™”í•  íŒë„¬ ì˜¤ë¸Œì íŠ¸)
     public void OpenPanel(GameObject panel)
     {
         panel.SetActive(true);
@@ -45,13 +46,13 @@ public class ButtonAction : MonoBehaviour
         panel.SetActive(false);
     }
 
-    // °ÔÀÓ Á¾·á
+    // ê²Œì„ ì¢…ë£Œ
     public void QuitGame()
     {
-        // ±¸µ¿ È¯°æÀÌ À¯´ÏÆ¼ ¿¡µğÅÍÀÏ °æ¿ì
+        // êµ¬ë™ í™˜ê²½ì´ ìœ ë‹ˆí‹° ì—ë””í„°ì¼ ê²½ìš°
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        // ±¸µ¿ È¯°æÀÌ ÀÀ¿ëÇÁ·Î±×·¥ÀÏ °æ¿ì
+        // êµ¬ë™ í™˜ê²½ì´ ì‘ìš©í”„ë¡œê·¸ë¨ì¼ ê²½ìš°
         #else
             Application.Quit();
         #endif
