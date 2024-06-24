@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MoneyManager : MonoBehaviour
@@ -6,7 +6,12 @@ public class MoneyManager : MonoBehaviour
     public static MoneyManager Instance { get; private set; }
 
     public int money = 0; // 현재 돈
+    public int diamonds = 0;  // 현재 다이아몬드
     public Text moneyText;
+    public Text diamondsText;
+    private int monstersDefeated = 0;
+    private int charactersSummoned = 0;
+    private int charactersEnhanced = 0;
 
     private void Awake()
     {
@@ -29,6 +34,7 @@ public class MoneyManager : MonoBehaviour
     {
         money += amount;
         UpdateMoneyUI();
+        CheckQuestCompletion();
         Debug.Log("Money: " + money);
     }
 
@@ -45,6 +51,57 @@ public class MoneyManager : MonoBehaviour
             Debug.LogWarning("돈이 부족합니다.");
         }
     }
+    public void AddDiamonds(int amount)
+    {
+        diamonds += amount;
+        UpdateDiamondsUI();
+        Debug.Log("Diamonds: " + diamonds);
+    }
+
+    public bool PayDiamonds(int amount)
+    {
+        bool success = false; // 성공 여부를 저장할 변수를 초기화합니다.
+
+        if (diamonds >= amount)
+        {
+            diamonds -= amount;
+            UpdateDiamondsUI();
+            Debug.Log("Diamonds: " + diamonds);
+            success = true; // 다이아몬드 지불 성공
+        }
+        else
+        {
+            Debug.LogWarning("돈이 부족합니다.");
+            success = false; // 다이아몬드 지불 실패
+        }
+        return success; // 성공 여부를 반환합니다.
+    }
+
+    public void AddMonstersDefeated(int count)
+    {
+        monstersDefeated += count;
+        CheckQuestCompletion();
+    }
+
+    public void AddCharactersSummoned(int count)
+    {
+        charactersSummoned += count;
+        CheckQuestCompletion();
+    }
+
+    public void AddCharactersEnhanced(int count)
+    {
+        charactersEnhanced += count;
+        CheckQuestCompletion();
+    }
+
+    private void UpdateDiamondsUI()
+    {
+        if (diamondsText != null)
+        {
+            diamondsText.text = "Diamonds: " + diamonds.ToString();
+        }
+    }
 
     private void UpdateMoneyUI()
     {
@@ -59,6 +116,22 @@ public class MoneyManager : MonoBehaviour
         if (money >= 500)
         {
             QuestManager.Instance.CompleteQuest("골드 획득");
+            RewardManager.Instance.GiveReward("QuestGold"); // 퀘스트 완료 보상 주기
+        }
+        if (monstersDefeated >= 10)
+        {
+            QuestManager.Instance.CompleteQuest("몬스터 처치");
+            RewardManager.Instance.GiveReward("QuestGold"); // 퀘스트 완료 보상 주기
+        }
+        if (charactersSummoned >= 10)
+        {
+            QuestManager.Instance.CompleteQuest("소환 10회 진행");
+            RewardManager.Instance.GiveReward("QuestGold"); // 퀘스트 완료 보상 주기
+        }
+        if (charactersEnhanced >= 10)
+        {
+            QuestManager.Instance.CompleteQuest("강화 10회 진행");
+            RewardManager.Instance.GiveReward("QuestGold"); // 퀘스트 완료 보상 주기
         }
     }
 }
