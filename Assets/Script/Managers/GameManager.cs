@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public int playerHealth;
 
     // 플레이 중 여부
-    private bool isPlaying = false;
 
     // 게임 종료 UI 캔버스
     public GameObject gameOverCanvas;
@@ -64,7 +63,6 @@ public class GameManager : MonoBehaviour
     // 게임 시작
     public void GameStart()
     {
-        isPlaying = true;
         Time.timeScale = 1f;
     }
 
