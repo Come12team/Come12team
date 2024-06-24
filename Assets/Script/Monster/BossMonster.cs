@@ -8,14 +8,14 @@ public class BossMonster : MonoBehaviour
     private Transform[] wayPoints;
     private int currentIndex = 0;
     private MonsterManager monsterManager;
-    //private Player player; // ÇÃ·¹ÀÌ¾î(¼ÒÈ¯¼ö)?
+    //private Player player; // í”Œë ˆì´ì–´(ì†Œí™˜ìˆ˜)?
     //private System.Random random = new System.Random();
     public int health = 100;
-    public float timeLimit = 30f; // 30ÃÊÁ¦ÇÑ
+    public float timeLimit = 30f; // 30ì´ˆì œí•œ
 
     private void Start()
     {
-        StartCoroutine(StartTimer()); // Å¸ÀÌ¸Ó
+        StartCoroutine(StartTimer()); // íƒ€ì´ë¨¸
         //StartCoroutine(IncreaseHealthPeriodically());
     }
 
@@ -61,7 +61,7 @@ public class BossMonster : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //if (random.NextDouble() <= 0.03) //3ÆÛ¼¾Æ®È®·ü·Î °ø°İ¹«È¿
+        //if (random.NextDouble() <= 0.03) //3í¼ì„¼íŠ¸í™•ë¥ ë¡œ ê³µê²©ë¬´íš¨
         //{
         //    Debug.Log("Attack blocked!");
         //    return;
@@ -73,27 +73,27 @@ public class BossMonster : MonoBehaviour
         }
         //if (random.NextDouble() <= 0.05)
         //{
-        //    Debug.Log("¼ÒÈ¯»ç ÇÃ·¹ÀÌ¾î °ø°İ¼Óµµ?");
-        //    player.°ø°İ¼Óµµ?(0.4f, 3.0f); // 40% ´À·ÁÁö°Ô °ø°İ¼Óµµ°¡
+        //    Debug.Log("ì†Œí™˜ì‚¬ í”Œë ˆì´ì–´ ê³µê²©ì†ë„?");
+        //    player.ê³µê²©ì†ë„ ? (0.4f, 3.0f); // 40% ëŠë ¤ì§€ê²Œ ê³µê²©ì†ë„ê°€
         //}
     }
 
     private void Die()
     {
-        StopAllCoroutines(); // ¸ğµç ÄÚ·çÆ¾ ÁßÁö
+        StopAllCoroutines(); // ëª¨ë“  ì½”ë£¨í‹´ ì¤‘ì§€
         Destroy(gameObject);
     }
 
     private IEnumerator StartTimer()
     {
-        yield return new WaitForSeconds(timeLimit); // 30ÃÊ ±â´Ş
+        yield return new WaitForSeconds(timeLimit); // 30ì´ˆ ê¸°ë‹¬
         if (health > 0)
         {
-            //GameOver(); // °ÔÀÓ ¿À¹ö Ã³¸®
+            //GameOver(); //ì˜¤ë²„ ì²˜ë¦¬
         }
     }
 
-    //private void StunPlayer(float duration) //ÇÃ·¹ÀÌ¾î?½ºÅÏÀû¿ëÇÏ°Ô
+    //private void StunPlayer(float duration) //í”Œë ˆì´ì–´?ìŠ¤í„´ì ìš©í•˜ê²Œ
     //{
     //    if (player != null)
     //    {
@@ -101,14 +101,14 @@ public class BossMonster : MonoBehaviour
     //    }
     //}
 
-    
+
     //private void AttackPlayer()
     //{
-    //    //1ÃÊ°£ ½ºÅÏ
+    //    //1ì´ˆê°„ ìŠ¤í„´
     //    StunPlayer(1.0f);
     //}
 
-    //private IEnumerator IncreaseHealthPeriodically() //º¸½º¸ó½ºÅÍ°¡ 10ÃÊ¸¶´Ù Ã¼·Â20È¸º¹
+    //private IEnumerator IncreaseHealthPeriodically() //ë³´ìŠ¤ëª¬ìŠ¤í„°ê°€ 10ì´ˆë§ˆë‹¤ ì²´ë ¥20íšŒë³µ
     //{
     //    while (true)
     //    {
@@ -119,6 +119,6 @@ public class BossMonster : MonoBehaviour
 
     //private void GameOver()
     //{
-    //    SceneManager.LoadScene("Lobby"); // ·Îºñ ÀÌµ¿
+    //    SceneManager.LoadScene("Lobby"); // ë¡œë¹„ ì´ë™
     //}
 }
