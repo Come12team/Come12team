@@ -54,4 +54,11 @@ public class MoneyManager : MonoBehaviour
         }
     }
 
+    private void CheckQuestCompletion()
+    {
+        if (money >= 500)
+        {
+            QuestManager.Instance.CompleteQuest("골드 획득");
+        }
+    }
 }
