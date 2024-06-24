@@ -5,43 +5,44 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    private int wayPointCount; //ÀÌµ¿ °æ·Î °³¼ö
-    private Transform[] wayPoints; // ÀÌµ¿ °æ·Î Á¤º¸
-    private int currentIndex = 0; //ÇöÀç ¸ñÇ¥ÁöÁ¡ ÀÎµ¦½º
-    private MonsterManager monsterManager; // ¿ÀºêÁ§Æ® ÀÌµ¿ Á¦¾î 
+    private int wayPointCount; //ì´ë™ ê²½ë¡œ ê°œìˆ˜
+    private Transform[] wayPoints; // ì´ë™ ê²½ë¡œ ì •ë³´
+    private int currentIndex = 0; //í˜„ì¬ ëª©í‘œì§€ì  ì¸ë±ìŠ¤
+    private MonsterManager monsterManager; // ì˜¤ë¸Œì íŠ¸ ì´ë™ ì œì–´ 
+    private int health = 100; // ëª¬ìŠ¤í„° ì²´ë ¥
 
     public void Setup(Transform[] wayPoints)
     {
         monsterManager = GetComponent<MonsterManager>();
 
-        // Àû ÀÌµ¿ °æ·Î  WayPoints Á¤º¸ ¼³Á¤
+        // ì  ì´ë™ ê²½ë¡œ  WayPoints ì •ë³´ ì„¤ì •
         wayPointCount = wayPoints.Length;
         this.wayPoints = new Transform[wayPointCount];
         this.wayPoints = wayPoints;
 
-        // ÀûÀÇ À§Ä¡¸¦ Ã¹¹øÂ° wayPoint À§Ä¡·Î ¼³Á¤
+        // ì ì˜ ìœ„ì¹˜ë¥¼ ì²«ë²ˆì§¸ wayPoint ìœ„ì¹˜ë¡œ ì„¤ì •
         transform.position = wayPoints[currentIndex].position;
 
-        //Àû ÀÌµ¿/ ¸ñÇ¥ ÁöÁ¡ ¼³Á¤ ÄÚ·çÆ¾ ÇÔ¼ö ½ÃÀÛ
+        //ì  ì´ë™/ ëª©í‘œ ì§€ì  ì„¤ì • ì½”ë£¨í‹´ í•¨ìˆ˜ ì‹œì‘
         StartCoroutine("OnMove");
     }
 
     private IEnumerator OnMove()
     {
-        //´ÙÀ½ ÀÌµ¿ ¹æÇâ ¼³Á¤ 
+        //ë‹¤ìŒ ì´ë™ ë°©í–¥ ì„¤ì • 
         NextMoveTo();
 
         while(true)
         {
-            // Àû ¿ÀºêÁ§Æ® È¸Àü
+            // ì  ì˜¤ë¸Œì íŠ¸ íšŒì „
             //transform.Rotate(Vector3.forward * 10);
 
-            // ÀûÀÇ ÇöÀç À§Ä¡¿Í ¸ñÇ¥À§Ä¡ÀÇ °Å¸®°¡ 0.02 * movement2D.MoveSpeedº¸´Ù ÀÛÀ» ¶§ if Á¶°Ç¹® ½ÇÇà
-            // Tip.movement2D.MoveSpeed¸¦ °öÇØÁÖ´Â ÀÌÀ¯´Â ¼Óµµ°¡ ºü¸£¸é ÇÑ ÇÁ·¹ÀÓ¿¡ 0.02º¸´Ù Å©°Ô ¿òÁ÷ÀÌ±â ¶§¹®¿¡
-            // if Á¶°Ç¹®¿¡ °É¸®Áö ¾Ê°í °æ·Î¸¦ Å»ÁÖÇÏ´Â ¿ÀºêÁ§Æ®°¡ ¹ß»ıÇÒ ¼ö ÀÖ´Ù.
+            // ì ì˜ í˜„ì¬ ìœ„ì¹˜ì™€ ëª©í‘œìœ„ì¹˜ì˜ ê±°ë¦¬ê°€ 0.02 * movement2D.MoveSpeedë³´ë‹¤ ì‘ì„ ë•Œ if ì¡°ê±´ë¬¸ ì‹¤í–‰
+            // Tip.movement2D.MoveSpeedë¥¼ ê³±í•´ì£¼ëŠ” ì´ìœ ëŠ” ì†ë„ê°€ ë¹ ë¥´ë©´ í•œ í”„ë ˆì„ì— 0.02ë³´ë‹¤ í¬ê²Œ ì›€ì§ì´ê¸° ë•Œë¬¸ì—
+            // if ì¡°ê±´ë¬¸ì— ê±¸ë¦¬ì§€ ì•Šê³  ê²½ë¡œë¥¼ íƒˆì£¼í•˜ëŠ” ì˜¤ë¸Œì íŠ¸ê°€ ë°œìƒí•  ìˆ˜ ìˆë‹¤.
             if(Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.02f * monsterManager.MoveSpeed)
             {
-                //´ÙÀ½ ÀÌµ¿ ¹æÇâ ¼³Á¤
+                //ë‹¤ìŒ ì´ë™ ë°©í–¥ ì„¤ì •
                 NextMoveTo();
             }
 
@@ -51,21 +52,37 @@ public class Monster : MonoBehaviour
 
     private void NextMoveTo()
     {
-        // ¾ÆÁ÷ ÀÌµ¿ÇÒ wayPoints°¡ ³²¾ÆÀÖ´Ù¸é
+        // ì•„ì§ ì´ë™í•  wayPointsê°€ ë‚¨ì•„ìˆë‹¤ë©´
         if(currentIndex < wayPointCount -1)
         {
-            //ÀûÀÇ À§Ä¡¸¦ Á¤È®ÇÏ°Ô ¸ñÇ¥ À§Ä¡·Î ¼³Á¤
+            //ì ì˜ ìœ„ì¹˜ë¥¼ ì •í™•í•˜ê²Œ ëª©í‘œ ìœ„ì¹˜ë¡œ ì„¤ì •
             transform.position = wayPoints[currentIndex].position;
-            // ÀÌµ¿ ¹æÇâ ¼³Á¤ => ´ÙÀ½ ¸ñÇ¥ ÁöÁ¡(wayPoints)
+            // ì´ë™ ë°©í–¥ ì„¤ì • => ë‹¤ìŒ ëª©í‘œ ì§€ì (wayPoints)
             currentIndex ++;
             Vector3 direction = (wayPoints[currentIndex].position - transform.position).normalized;
             monsterManager.MoveTo(direction);
         }
         else
         {
-            // Àû ¿ÀºêÁ§Æ®¸¦ Ã¹ ¹øÂ° wayPoint·Î ÀÌµ¿½ÃÅ´
+            // ì  ì˜¤ë¸Œì íŠ¸ë¥¼ ì²« ë²ˆì§¸ wayPointë¡œ ì´ë™ì‹œí‚´
             currentIndex = 0;
             transform.position = wayPoints[currentIndex].position;
         }
     }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        // ëª¬ìŠ¤í„° ì‚¬ë§ ì²˜ë¦¬ (ì˜ˆ: ì˜¤ë¸Œì íŠ¸ ì œê±°, ì‚¬ë§ ì• ë‹ˆë©”ì´ì…˜ ë“±)
+        Destroy(gameObject);
+    }
+
 }

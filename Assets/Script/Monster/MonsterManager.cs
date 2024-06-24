@@ -6,19 +6,20 @@ using UnityEngine;
 public class MonsterManager : MonoBehaviour
 {
     [SerializeField]
-    private float moveSpeed = 0.0f; // ÀÌµ¿ ¼Óµµ¸¦ ÀúÀåÇÏ´Â º¯¼ö
+    private float moveSpeed = 0.0f; // ì´ë™ ì†ë„ë¥¼ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
     [SerializeField]
-    private Vector3 moveDirection = Vector3.zero; // ÀÌµ¿ ¹æÇâÀ» ÀúÀåÇÏ´Â º¯¼ö
+    private Vector3 moveDirection = Vector3.zero; // ì´ë™ ë°©í–¥ì„ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
 
-    public float MoveSpeed => moveSpeed; // moveSpeed º¯¼öÀÇ ÇÁ·ÎÆÛÆ¼ (ÀĞ±â Àü¿ë)
+    public float MoveSpeed => moveSpeed; // moveSpeed ë³€ìˆ˜ì˜ í”„ë¡œí¼í‹° (ì½ê¸° ì „ìš©)
 
     private void Update()
     {
-        transform.position += moveDirection * moveSpeed * Time.deltaTime; // ¸Å ÇÁ·¹ÀÓ¸¶´Ù °´Ã¼¸¦ ÀÌµ¿ ¹æÇâ°ú ¼Óµµ¿¡ ¸ÂÃç ÀÌµ¿½ÃÅ´
+        transform.position += moveDirection * moveSpeed * Time.deltaTime; // ë§¤ í”„ë ˆì„ë§ˆë‹¤ ê°ì²´ë¥¼ ì´ë™ ë°©í–¥ê³¼ ì†ë„ì— ë§ì¶° ì´ë™ì‹œí‚´
     }
 
     public void MoveTo(Vector3 direction)
     {
-        moveDirection = direction; // ÀÌµ¿ ¹æÇâÀ» ¼³Á¤ÇÏ´Â ¸Ş¼­µå
+        moveDirection = direction; // ì´ë™ ë°©í–¥ì„ ì„¤ì •í•˜ëŠ” ë©”ì„œë“œ
+
     }
 }
