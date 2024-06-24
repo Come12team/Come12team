@@ -234,6 +234,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5d1b68ff90327c439e256a4ab4bb0b3, type: 3}
+--- !u!114 &695433603 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8426072697030391996, guid: 473328ab4dc6ccc40a3b106c8433ae20, type: 3}
+  m_PrefabInstance: {fileID: 1598575176}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1083865330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -331,6 +342,65 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0c69be8e79ee2c4bb7fc1a4f095b0e8, type: 3}
+--- !u!114 &1280790491 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7996637620925470067, guid: c0c69be8e79ee2c4bb7fc1a4f095b0e8, type: 3}
+  m_PrefabInstance: {fileID: 1083865330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1416043059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1416043061}
+  - component: {fileID: 1416043060}
+  m_Layer: 0
+  m_Name: SceneMover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1416043060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416043059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c41ae5e576f768e429a4353db7b2f7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playButton: {fileID: 0}
+  stageButton: {fileID: 695433603}
+  exitButton: {fileID: 1280790491}
+  lobbyButton: {fileID: 0}
+--- !u!4 &1416043061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416043059}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 245.7511, y: 792.0133, z: 18.239218}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1598575176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,6 +667,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1945285010}
+  - {fileID: 1416043061}
   - {fileID: 1876260576}
   - {fileID: 1598575176}
   - {fileID: 165817881}
