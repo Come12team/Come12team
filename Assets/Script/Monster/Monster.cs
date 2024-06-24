@@ -11,6 +11,7 @@ public class Monster : MonoBehaviour
     private MonsterManager monsterManager; // 오브젝트 이동 제어 
     private int health = 100; // 몬스터 체력
     private float moveThreshold = 0.02f; // 이동 거리 값
+    public string enemyType = "Monster";
 
     public delegate void DeathDelegate(Monster monster);
     public event DeathDelegate OnDeath;
@@ -85,7 +86,8 @@ public class Monster : MonoBehaviour
     private void Die()
     {
         // 몬스터 사망 처리 (예: 오브젝트 제거, 사망 애니메이션 등)
-        OnDeath?.Invoke(this);
+        RewardManager.Instance.GiveReward(enemyType);
+        //MoneyManager.Instance.AddMonstersDefeated(1);
         Destroy(gameObject);
     }
 
