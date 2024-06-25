@@ -11,6 +11,8 @@ public class SceneMover : MonoBehaviour
     public Button stageButton;
     public Button exitButton;
     public Button lobbyButton;
+    public Button backButton;
+    public Button backButton2;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,16 @@ public class SceneMover : MonoBehaviour
         {
             lobbyButton.onClick.AddListener(OnLobbyButtonClick);
         }
+
+        if (backButton != null)
+        {
+            backButton.onClick.AddListener(OnBackButtonClick);
+        }
+
+        if (backButton2 != null)
+        {
+            backButton2.onClick.AddListener(OnBackButtonClick);
+        }
     }
 
     void OnPlayButtonClick()
@@ -47,6 +59,11 @@ public class SceneMover : MonoBehaviour
     }
 
     void OnLobbyButtonClick()
+    {
+        SceneManager.LoadScene("LobbyScene_UITest");
+    }
+
+    void OnBackButtonClick()
     {
         SceneManager.LoadScene("LobbyScene_UITest");
     }
