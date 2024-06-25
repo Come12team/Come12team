@@ -22,6 +22,7 @@ public class Monster : MonoBehaviour
 
         // 적 이동 경로  WayPoints 정보 설정
         wayPointCount = wayPoints.Length;
+
         this.wayPoints = new Transform[wayPointCount];
         this.wayPoints = wayPoints;
 
