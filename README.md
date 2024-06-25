@@ -9,6 +9,7 @@
 - [와이어 프레임](#와이어-프레임)
 - [UML](#UML)
 - [마인드맵](#마인드맵)
+- [팀노션](#팀노션)
 
 ## 소개
 **Beast Fortress**은 Unity를 사용하여 개발한 2D 디펜스 게임입니다. 우리 게임은 동물들이 사냥꾼으로부터 숲을 지키는 내용을 담은 게임입니다.
@@ -39,4 +40,5 @@
 ## UML
 [UML](https://app.diagrams.net/#G1qIesEnzJ_XLhbN0pltSxSVDk8kyfXAGs#%7B%22pageId%22%3A%22C5RBs43oDa-KdzZeNtuy%22%7D)
 
-## 마인드맵
+## 팀노션
+[이리오너라](https://teamsparta.notion.site/12-fffcde110d7e463db6ae08d92e8d6e00)
