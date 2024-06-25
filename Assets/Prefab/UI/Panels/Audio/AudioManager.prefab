@@ -147,6 +147,7 @@ MonoBehaviour:
   PlaySoundSetPN: {fileID: 8526722214242467002}
   audioSource: {fileID: 2095650759329591692}
   audioClip: {fileID: 8300000, guid: 01cce6052a23c5244ae1ab4656694846, type: 3}
+  shootingClip: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
   audioMixer: {fileID: 24100000, guid: b1164b34cd42697428ba1bd925ab8af2, type: 2}
   masterSlider: {fileID: 587062660211466660}
   sfxSlider: {fileID: 7056914555430711082}

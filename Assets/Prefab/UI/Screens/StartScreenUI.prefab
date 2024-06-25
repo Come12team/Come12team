@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 42b4ccfb2a9a91f4c98b473a7127a803, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 339ba9c7ed597db49834c3f1b7c99563, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 95964b175cf92c64eb76847900aca240, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3d1064050a3ac44cb35b4c31eea1cc0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3a94e72c2903cb640be94bc01a0791da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0bec08b7ff49ce4e9d140f52fb2a3be, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 95964b175cf92c64eb76847900aca240, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3d1064050a3ac44cb35b4c31eea1cc0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1bc528c10eff02e488f874d11654f253, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4fdae869e5b94845b1af62b962f77f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 95964b175cf92c64eb76847900aca240, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3d1064050a3ac44cb35b4c31eea1cc0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -741,10 +741,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41ae5e576f768e429a4353db7b2f7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lobbyButton: {fileID: 0}
   playButton: {fileID: 7918200854900347914}
   stageButton: {fileID: 0}
   exitButton: {fileID: 0}
+  lobbyButton: {fileID: 0}
+  backButton: {fileID: 0}
+  backButton2: {fileID: 0}
 --- !u!1 &8662435931049986548
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +813,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ce5c3fb0db5137e4eb256b4893d8de7c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01ce1d02a5ad24f4fbdae90a379bb94c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -961,7 +963,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 95964b175cf92c64eb76847900aca240, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3d1064050a3ac44cb35b4c31eea1cc0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
