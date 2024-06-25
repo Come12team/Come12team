@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3397408770086569314}
   m_Layer: 0
   m_Name: Cha_mouse
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,3 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 3488d930143806346b35891bc20b1aac, type: 2}
+  m_fDetectRange: 2

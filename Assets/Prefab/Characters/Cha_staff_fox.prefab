@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4599129615450557516}
   m_Layer: 0
   m_Name: Cha_staff_fox
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,3 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: f589b4b3417c8e740960f5f3989f7d51, type: 2}
+  m_fDetectRange: 2

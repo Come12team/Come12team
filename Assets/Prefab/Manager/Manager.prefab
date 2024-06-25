@@ -46,6 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPrefabs:
   - {fileID: 1957818390446832597, guid: d15f3c8e44ae048cfb1ef3b1aafb5ca1, type: 3}
+  - {fileID: 7714933398745627954, guid: ecbc99228a44cd64c8b404d31024db3a, type: 3}
+  - {fileID: 3154129921312593818, guid: 04c02005ccafa384799fdf26e62b06a9, type: 3}
+  - {fileID: 9194124608025659485, guid: 13e08e70f90f0b84084b7b62146b9f02, type: 3}
+  - {fileID: 3455826813335407569, guid: 36a0d5f1dddc2844fa33b03934e87a76, type: 3}
+  - {fileID: 800096767579247535, guid: 6675a7b4778d9114fae1108cbefe65eb, type: 3}
+  - {fileID: 3455826813335407569, guid: 36a0d5f1dddc2844fa33b03934e87a76, type: 3}
+  - {fileID: 8191577187985947340, guid: f9f1249c225874e4db2157330d0681ca, type: 3}
+  - {fileID: 4905146886875465167, guid: 5deb7006378aa8d45b567ff75f160183, type: 3}
+  - {fileID: 3008088510943932719, guid: fedb3589af00f394c98371ff9977cd2f, type: 3}
   spawnArea: {fileID: 0}
   summonButton: {fileID: 0}
   cost: 10
@@ -158,6 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4868038421358287036}
+  - component: {fileID: 3649803050374755405}
   m_Layer: 0
   m_Name: QuestManager
   m_TagString: Untagged
@@ -180,6 +190,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2678656331961572336}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3649803050374755405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003025513321982399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a27bac172d710448e3572035303679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5644898380407953116
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +248,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableCharacters:
   - {fileID: 11400000, guid: ed3d35629046b4e578f6037d89db34fd, type: 2}
-  - {fileID: 11400000, guid: ab20de9ab42274833a406a7759a91fe8, type: 2}
+  - {fileID: 11400000, guid: ed212c3906610e84bbbf6c65888b6f8f, type: 2}
+  - {fileID: 11400000, guid: 160d9bb1435eedb469754db6acee41b8, type: 2}
+  - {fileID: 11400000, guid: 519adfb1ca0064d4298a5d4d1c6e5c34, type: 2}
+  - {fileID: 11400000, guid: 1339a2545c1980a48805ad126ce7bceb, type: 2}
+  - {fileID: 11400000, guid: db21fb653ac57f9488e788c6db28f75e, type: 2}
+  - {fileID: 11400000, guid: 1ed27375b5fd54a468ee6fde178a2e86, type: 2}
   ownedCharacters: []
   fusionManager: {fileID: 4715517474671580116}
   characterdata: {fileID: 0}

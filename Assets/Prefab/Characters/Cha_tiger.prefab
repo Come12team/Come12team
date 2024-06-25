@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4472480838106145966}
   m_Layer: 0
   m_Name: Cha_tiger
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,3 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 1e47a156de13daa42b42176f6c982c93, type: 2}
+  m_fDetectRange: 2

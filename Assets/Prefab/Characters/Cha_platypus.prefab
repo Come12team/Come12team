@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 962837711681919756}
   m_Layer: 0
   m_Name: Cha_platypus
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,3 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 6ee875768d6827947a37f3134551170d, type: 2}
+  m_fDetectRange: 2

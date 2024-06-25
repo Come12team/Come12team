@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5311596835726491995}
   m_Layer: 0
   m_Name: DragonWarrior
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,12 +49,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: ed3d35629046b4e578f6037d89db34fd, type: 2}
   m_fDetectRange: 2
-  m_EnemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  m_BossLayer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!212 &4260799941163679213
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static CharacterData;
 public class SpawnerCharacter : MonoBehaviour
 {
     public string Name { get; private set; }
