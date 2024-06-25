@@ -134,4 +134,13 @@ public class CharacterManager : MonoBehaviour
         newCharacter.InitializeCharacter();
         return newCharacter;
     }
+
+    // 모든 소유한 캐릭터를 강화하는 메서드
+    public void EnhanceAllCharacters()
+    {
+        foreach (Character character in ownedCharacters.ToList()) // ToList()를 사용하여 반복 중 컬렉션 수정 방지
+        {
+            EnhancementManager.Instance.EnhanceCharacter(character); // 싱글톤 인스턴스 사용
+        }
+    }
 }
