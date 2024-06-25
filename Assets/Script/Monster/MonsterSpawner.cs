@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enemyPrefab; // 적 프리팹
+    private GameObject[] enemyPrefabs; // 적 프리팹 배열
     [SerializeField]
     private GameObject bossPrefab; // 적 프리팹 !!
     [SerializeField]
@@ -17,6 +18,10 @@ public class MonsterSpawner : MonoBehaviour
     private TMP_Text waveUIText; // Wave UI 텍스트
     [SerializeField]
     private Transform[] wayPoints; // 현재 스테이지의 이동 경로
+    [SerializeField]
+    private GameObject stageClearPN; 
+    [SerializeField]
+    private Button goButn; 
 
     private bool bossSpawned = false; // 보스가 생성되었는지 !!
     private int enemyCount = 0; // 생성된 적의 개수
@@ -24,10 +29,12 @@ public class MonsterSpawner : MonoBehaviour
     private int enemiesPerWave = 10; // 웨이브당 생성할 적의 기본 수
     private int totalEnemiesToSpawn = 10; // 현재 웨이브에서 생성할 총 적의 수
     private List<Monster> currentEnemies = new List<Monster>(); // 현재 웨이브에서 생성된 적의 리스트
+    private bool goButnClicked = false;
 
     private void Awake()
     {
         StartCoroutine("StartNextWave");
+        goButn.onClick.AddListener(OnGoButtonClick); // Go 버튼 클릭 이벤트 등록
     }
     private IEnumerator StartNextWave()
     {
@@ -38,6 +45,21 @@ public class MonsterSpawner : MonoBehaviour
             bossSpawned = false;
             totalEnemiesToSpawn = waveCount * enemiesPerWave;
 
+            // 적 생성 시작
+            StartCoroutine("SpawnEnemy");
+
+            // 적이 모두 사망할 때까지 대기
+            yield return new WaitUntil(() => currentEnemies.Count == 0);
+
+            // Stage Clear UI 활성화
+            stageClearPN.SetActive(true);
+
+            // Go 버튼 클릭을 기다림
+            yield return new WaitUntil(() => goButnClicked);
+
+            // Go 버튼 클릭 후 Stage Clear UI 비활성화
+            stageClearPN.SetActive(false);
+
             // 웨이브 UI 텍스트 업데이트 및 활성화
             waveUIText.text = "Wave " + waveCount;
             waveUIText.gameObject.SetActive(true);
@@ -45,14 +67,6 @@ public class MonsterSpawner : MonoBehaviour
             // 잠시 대기 후 텍스트 비활성화
             yield return new WaitForSeconds(3f);
             waveUIText.gameObject.SetActive(false);
-
-            StartCoroutine("SpawnEnemy");
-
-            // 적이 모두 사망할 때까지 대기
-            yield return new WaitUntil(() => currentEnemies.Count == 0);
-
-            // 웨이브 사이의 간격 (예: 5초)
-            yield return new WaitForSeconds(5f);
         }
 
         // 모든 웨이브가 끝났을 때
@@ -63,6 +77,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         while (enemyCount < totalEnemiesToSpawn)
         {
+            GameObject enemyPrefab = enemyPrefabs[waveCount % enemyPrefabs.Length];
             GameObject clone = Instantiate(enemyPrefab); // 적 오브젝트 생성
             Monster monster = clone.GetComponent<Monster>(); // 방금 생성된 적의 Monster 컴포넌트
 
@@ -92,4 +107,10 @@ public class MonsterSpawner : MonoBehaviour
         currentEnemies.Remove(monster);
     }
 
+
+
+    private void OnGoButtonClick()
+    {
+        goButnClicked = true;
+    }
 }

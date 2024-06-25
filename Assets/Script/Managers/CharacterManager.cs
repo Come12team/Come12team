@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
 
+using static CharacterData;
 public class CharacterManager : MonoBehaviour
 {
     public List<CharacterData> availableCharacters; // 가챠에서 사용할 캐릭터 목록
     public List<Character> ownedCharacters; // 소유한 캐릭터 목록
     public FusionManager fusionManager; // 합성 UI 매니저
+    public CharacterData characterdata; 
 
     // 캐릭터를 소유 목록에 추가하는 메서드
     public void AddCharacter(Character character)
@@ -26,12 +29,6 @@ public class CharacterManager : MonoBehaviour
             }
         }
         return null;
-    }
-
-    // 합성 UI를 띄우는 메서드
-    public void ShowFusionUI(Character character)
-    {
-        fusionManager.ShowFusionUI(character);
     }
 
     // 동일한 캐릭터가 특정 수 이상일 때 합성하는 메서드
@@ -91,6 +88,9 @@ public class CharacterManager : MonoBehaviour
             // 새로운 캐릭터 생성 및 추가
             Character newCharacter = CreateCharacter(newCharacterData);
             AddCharacter(newCharacter);
+
+            // 합성 UI를 표시
+            fusionManager.OnCharacterClicked(newCharacter);
         }
     }
 

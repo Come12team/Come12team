@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1105986878012420520
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968432a71a2e5fb45a894190b8c5e2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: Monster
 --- !u!114 &1772924778993468585
 MonoBehaviour:
   m_ObjectHideFlags: 0

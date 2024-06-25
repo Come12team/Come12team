@@ -44,7 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467c948c43212204e89169b333771098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3603095275537665186, guid: 677cbc6cf226b514fbee3bcef352a6fe, type: 3}
+  enemyPrefabs:
+  - {fileID: 3603095275537665186, guid: 677cbc6cf226b514fbee3bcef352a6fe, type: 3}
+  - {fileID: 3603095275537665186, guid: 77619ddd8be07084a87b1c3ca9cc54e6, type: 3}
+  - {fileID: 3603095275537665186, guid: 934b190b5c6e1374cb307f8c8ffc3631, type: 3}
   bossPrefab: {fileID: 8393074543838137248, guid: 92c0021af4007854f9ae8de6e1f851e6, type: 3}
   spawnerTime: 0.8
   bossSpawnDelay: 20
@@ -55,3 +58,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  stageClearPN: {fileID: 0}
+  goButn: {fileID: 0}
