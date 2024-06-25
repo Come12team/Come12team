@@ -12,9 +12,9 @@ public class Character : MonoBehaviour
         // 기타 초기화 로직
     }
 
-    void OnMouseDown()
+    // 캐릭터를 클릭했을 때 호출되는 메서드
+    public void OnMouseDown()
     {
-        // 유닛 클릭 시 합성 UI를 띄우는 로직 호출
-        FindObjectOfType<CharacterManager>().ShowFusionUI(this);
+        FindObjectOfType<FusionManager>().OnCharacterClicked(this);
     }
 }

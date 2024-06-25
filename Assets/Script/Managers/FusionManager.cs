@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class FusionManager : MonoBehaviour
 {
+    public CharacterManager characterManager;
     public GameObject fusionPanel; // 합성 UI 패널
     public Image characterImage; // 캐릭터 이미지
     public Text fusionText; // 합성 관련 텍스트
@@ -17,12 +17,21 @@ public class FusionManager : MonoBehaviour
         fusionPanel.SetActive(false);
     }
 
-    public void ShowFusionUI(Character character)
+    // 캐릭터를 클릭했을 때 호출되는 메서드
+    public void OnCharacterClicked(Character character)
     {
+        // 선택된 캐릭터 설정
         selectedCharacter = character;
-        characterImage.sprite = character.characterData.characterSprite; // 캐릭터 스프라이트 설정
-        int characterCount = FindObjectOfType<CharacterManager>().CountCharacters(character.characterData);
+
+        // 캐릭터 이미지 설정
+        //characterImage.sprite = character.characterData.characterSprite;
+
+        // 캐릭터 합성 가능 여부 텍스트 설정
+        int characterCount = characterManager.CountCharacters(character.characterData);
         fusionText.text = $"{character.characterData.characterName} 합성 가능 ({characterCount}/{charactersNeededForFusion})";
+
+        // 합성 UI 패널 활성화
+        //fusionPanel.transform.position = selectedCharacter.transform.position;
         fusionPanel.SetActive(true);
 
         // 합성 버튼 활성화 여부 설정
@@ -34,7 +43,7 @@ public class FusionManager : MonoBehaviour
         // 합성 로직을 처리
         if (selectedCharacter != null)
         {
-            FindObjectOfType<CharacterManager>().CheckForFusion(selectedCharacter);
+            characterManager.CheckForFusion(selectedCharacter);
         }
         // 합성 UI 패널을 비활성화
         fusionPanel.SetActive(false);
