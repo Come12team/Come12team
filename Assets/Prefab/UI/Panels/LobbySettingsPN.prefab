@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 1415729967512388888}
   - component: {fileID: 2452368501321736179}
   m_Layer: 5
-  m_Name: MasterSlider
+  m_Name: SFXSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -905,10 +905,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 987901560729741623}
   m_HandleRect: {fileID: 2101749534811141881}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.01
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.01
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1515,10 +1515,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1589074189641420116}
   m_HandleRect: {fileID: 1160973365603981240}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.01
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.01
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2152,10 +2152,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 5040581153058338721}
   m_HandleRect: {fileID: 5662041751543373869}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.01
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
