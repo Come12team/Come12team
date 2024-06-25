@@ -11,12 +11,14 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource audioSource;         // 오디오 소스 컴포넌트 (배경음악)
     public AudioClip audioClip;             // 오디오 클립 (배경음악)
+    public AudioClip shootingClip;          // 총알 발사 사운드 효과 클립
 
     [SerializeField] private AudioMixer audioMixer; // 오디오 믹서
     [SerializeField] private Slider masterSlider;   // 마스터 볼륨 슬라이더
     [SerializeField] private Slider sfxSlider;      // 효과음 슬라이더
     [SerializeField] private Slider bgmSlider;      // 배경음악 슬라이더
 
+    private AudioSource sfxSource;
 
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
+        sfxSource = gameObject.AddComponent<AudioSource>();
 
         // 배경음악 재생
         audioSource.clip = audioClip;
@@ -115,10 +118,5 @@ public class AudioManager : MonoBehaviour
     public void PNOnOff()
     {
         LobbySoundSetPN.SetActive(true);
-    }
-
-    public void PNOnOff2()
-    {
-        PlaySoundSetPN.SetActive(true);
     }
 }

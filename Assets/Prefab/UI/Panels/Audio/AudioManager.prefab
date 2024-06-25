@@ -143,7 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7b5ed14a3cf804b9a6338441df69e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundSentingPenel: {fileID: 5824727629435278401}
+  LobbySoundSetPN: {fileID: 5824727629435278401}
+  PlaySoundSetPN: {fileID: 8526722214242467002}
   audioSource: {fileID: 2095650759329591692}
   audioClip: {fileID: 8300000, guid: 01cce6052a23c5244ae1ab4656694846, type: 3}
   audioMixer: {fileID: 24100000, guid: b1164b34cd42697428ba1bd925ab8af2, type: 2}
@@ -390,5 +391,10 @@ PrefabInstance:
 --- !u!224 &5181964632257870128 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2367320158008025907, guid: c8c62fcd0b36ef841bb8b1aa81ce3444, type: 3}
+  m_PrefabInstance: {fileID: 7435548832780163587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8526722214242467002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1253514628386006713, guid: c8c62fcd0b36ef841bb8b1aa81ce3444, type: 3}
   m_PrefabInstance: {fileID: 7435548832780163587}
   m_PrefabAsset: {fileID: 0}

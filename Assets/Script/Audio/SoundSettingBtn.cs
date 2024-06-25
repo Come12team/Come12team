@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SoundSetingBtn : MonoBehaviour
+public class SoundSettingBtn : MonoBehaviour
 {
     private Button Btn;
 

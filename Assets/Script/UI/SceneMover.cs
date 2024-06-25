@@ -36,12 +36,12 @@ public class SceneMover : MonoBehaviour
         {
             lobbyButton.onClick.AddListener(OnLobbyButtonClick);
         }
-
+        // 스테이지 클리어 성공 시 돌아가기 Button
         if (backButton != null)
         {
             backButton.onClick.AddListener(OnBackButtonClick);
         }
-
+        // 스테이지 클리어 실패 시 돌아가기 Button
         if (backButton2 != null)
         {
             backButton2.onClick.AddListener(OnBackButtonClick);
