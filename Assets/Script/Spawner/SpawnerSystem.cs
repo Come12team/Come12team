@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static CharacterData;
 
 public class SpawnerSystem : MonoBehaviour
 {
@@ -48,14 +49,14 @@ public class SpawnerSystem : MonoBehaviour
         };
 
         // 캐릭터 리스트 초기화 (예시)
-        characters = new List<SpawnerCharacter>
-        {
-            new SpawnerCharacter("고양이", CharacterGrade.Normal, Resources.Load<Sprite>("고양이")),
-            new SpawnerCharacter("개", CharacterGrade.Magic, Resources.Load<Sprite>("개")),
-            new SpawnerCharacter("너구리", CharacterGrade.Hero, Resources.Load<Sprite>("너구리")),
-            new SpawnerCharacter("곰", CharacterGrade.Legendary, Resources.Load<Sprite>("곰")),
-            new SpawnerCharacter("돌고래", CharacterGrade.Mythic, Resources.Load<Sprite>("돌고래"))
-        };
+        //characters = new List<SpawnerCharacter>
+        //{
+        //    new SpawnerCharacter("고양이", CharacterGrade.Normal, Resources.Load<Sprite>("고양이")),
+        //    new SpawnerCharacter("개", CharacterGrade.Magic, Resources.Load<Sprite>("개")),
+        //    new SpawnerCharacter("너구리", CharacterGrade.Hero, Resources.Load<Sprite>("너구리")),
+        //    new SpawnerCharacter("곰", CharacterGrade.Legendary, Resources.Load<Sprite>("곰")),
+        //    new SpawnerCharacter("돌고래", CharacterGrade.Mythic, Resources.Load<Sprite>("돌고래"))
+        //};
     }
 
     public void RollSpawnerWithMoney()

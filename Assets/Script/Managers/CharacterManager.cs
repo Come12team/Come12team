@@ -10,7 +10,8 @@ public class CharacterManager : MonoBehaviour
     public List<CharacterData> availableCharacters; // 가챠에서 사용할 캐릭터 목록
     public List<Character> ownedCharacters; // 소유한 캐릭터 목록
     public FusionManager fusionManager; // 합성 UI 매니저
-    public CharacterData characterdata; 
+    public CharacterData characterdata;
+    public EnhancementManager enhancementManager;
 
     // 캐릭터를 소유 목록에 추가하는 메서드
     public void AddCharacter(Character character)
@@ -133,5 +134,14 @@ public class CharacterManager : MonoBehaviour
         newCharacter.characterData = characterData;
         newCharacter.InitializeCharacter();
         return newCharacter;
+    }
+
+    // 모든 캐릭터 강화를 하는 메서
+    public void EnhanceAllCharacters()
+    {
+        foreach (Character character in ownedCharacters.ToList()) // ToList()를 사용하여 반복 중 컬렉션 수정을 방지
+        {
+            enhancementManager.EnhanceCharacter(character);
+        }
     }
 }
