@@ -6,7 +6,8 @@ public class SpawnerSystem : MonoBehaviour
 {
     public static SpawnerSystem Instance { get; private set; }
 
-    private Dictionary<CharacterGrade, float> gradeProbabilities;
+    private Dictionary<CharacterGrade, float> moneyGradeProbabilities;
+    private Dictionary<CharacterGrade, float> diamondGradeProbabilities;
     private List<SpawnerCharacter> characters;
 
     private void Awake()
@@ -26,14 +27,24 @@ public class SpawnerSystem : MonoBehaviour
 
     private void InitializeSpawnerSystem()
     {
-        // 등급별 확률 설정
-        gradeProbabilities = new Dictionary<CharacterGrade, float>
+        // 머니로 가챠할 때의 등급별 확률 설정
+        moneyGradeProbabilities = new Dictionary<CharacterGrade, float>
         {
             { CharacterGrade.Normal, 0.5f },
             { CharacterGrade.Magic, 0.3f },
             { CharacterGrade.Hero, 0.1f },
-            { CharacterGrade.Legendary, 0.08f },
-            { CharacterGrade.Mythic, 0.02f }
+            { CharacterGrade.Legendary, 0.05f },
+            { CharacterGrade.Mythic, 0.01f }
+        };
+
+        // 다이아몬드로 가챠할 때의 등급별 확률 설정
+        diamondGradeProbabilities = new Dictionary<CharacterGrade, float>
+        {
+            { CharacterGrade.Normal, 0.1f },
+            { CharacterGrade.Magic, 0.3f },
+            { CharacterGrade.Hero, 0.5f },
+            { CharacterGrade.Legendary, 0.3f },
+            { CharacterGrade.Mythic, 0.1f }
         };
 
         // 캐릭터 리스트 초기화 (예시)
@@ -46,7 +57,22 @@ public class SpawnerSystem : MonoBehaviour
             new SpawnerCharacter("돌고래", CharacterGrade.Mythic, Resources.Load<Sprite>("돌고래"))
         };
     }
-    public SpawnerCharacter RollSpawnerWithDiamond()
+
+    public void RollSpawnerWithMoney()
+    {
+        int moneyCost = 100; // 가챠에 필요한 돈 비용
+
+        MoneyManager.Instance.PayMoney(moneyCost);
+
+        // 돈을 사용하여 가챠를 실행하고 결과를 반환합니다.
+        SpawnerCharacter result = RollSpawner(moneyGradeProbabilities);
+        if (result != null)
+        {
+            MoneyManager.Instance.CheckQuestCompletion(); // 퀘스트 상황을 확인하여 보상 지급
+        }
+    }
+
+    public bool RollSpawnerWithDiamond()
     {
         int diamondCost = 1; // 가챠에 필요한 다이아몬드 비용
 
@@ -55,17 +81,26 @@ public class SpawnerSystem : MonoBehaviour
         if (success)
         {
             // 다이아몬드를 사용하여 가챠를 실행하고 결과를 반환합니다.
-            return RollSpawner();
+            SpawnerCharacter result = RollSpawner(diamondGradeProbabilities);
+            if (result != null)
+            {
+                MoneyManager.Instance.CheckQuestCompletion(); // 퀘스트 상황을 확인하여 보상 지급
+                return true; // 가챠 성공 및 결과 반환
+            }
+            else
+            {
+                return false; // 가챠 실패 (결과 없음)
+            }
         }
         else
         {
             // 다이아몬드가 부족하여 가챠 실행에 실패한 경우
             Debug.LogWarning("다이아몬드가 부족합니다.");
-            return null; // 또는 기본 값 등을 반환하거나 null을 반환합니다.
+            return false;
         }
     }
 
-    public SpawnerCharacter RollSpawner()
+    private SpawnerCharacter RollSpawner(Dictionary<CharacterGrade, float> gradeProbabilities)
     {
         float randomValue = Random.value;
         float cumulativeProbability = 0f;
@@ -87,5 +122,16 @@ public class SpawnerSystem : MonoBehaviour
         List<SpawnerCharacter> filteredCharacters = characters.FindAll(character => character.Grade == grade);
         int randomIndex = Random.Range(0, filteredCharacters.Count);
         return filteredCharacters[randomIndex];
+    }
+
+    public SpawnerCharacter RollSpawnerWithCurrentDiamondProbabilities()
+    {
+        Dictionary<CharacterGrade, float> diamondGradeProbabilities = GetDiamondGradeProbabilities();
+        return RollSpawner(diamondGradeProbabilities);
+    }
+
+    public Dictionary<CharacterGrade, float> GetDiamondGradeProbabilities()
+    {
+        return diamondGradeProbabilities;
     }
 }

@@ -5,7 +5,7 @@ public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager Instance { get; private set; }
 
-    public int money = 0; // 현재 돈
+    public int money = 50; // 현재 돈
     public int diamonds = 0;  // 현재 다이아몬드
     public Text moneyText;
     public Text diamondsText;
@@ -51,6 +51,11 @@ public class MoneyManager : MonoBehaviour
             Debug.LogWarning("돈이 부족합니다.");
         }
     }
+    public int GetCurrentMoney()
+    {
+        return money;
+    }
+
     public void AddDiamonds(int amount)
     {
         diamonds += amount;
@@ -111,7 +116,7 @@ public class MoneyManager : MonoBehaviour
         }
     }
 
-    private void CheckQuestCompletion()
+    public void CheckQuestCompletion()
     {
         if (money >= 500)
         {
