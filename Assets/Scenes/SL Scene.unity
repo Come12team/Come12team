@@ -150,7 +150,7 @@ PrefabInstance:
     - target: {fileID: 3903085850401581985, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 765697236}
+      objectReference: {fileID: 0}
     - target: {fileID: 3903085850401581985, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -388,17 +388,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &765697236 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3071898170578724375, guid: 5ba8b9c5563394aabaa58e923d662665, type: 3}
-  m_PrefabInstance: {fileID: 6594326328364424462}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 371c264151d824a948c69a92fa2d1e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1069461647 stripped
