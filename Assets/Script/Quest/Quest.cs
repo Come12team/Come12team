@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quest : MonoBehaviour
+public class Quest
 {
     public string QuestName { get; private set; }
     public string CompletionCondition { get; private set; }
@@ -21,6 +21,6 @@ public class Quest : MonoBehaviour
     {
         IsCompleted = true;
         MoneyManager.Instance.AddMoney(Reward);
-        Debug.Log($"{QuestName} Äù½ºÆ® ¿Ï·á! Reward: {Reward} gold.");
+        Debug.Log($"{QuestName} í€˜ìŠ¤íŠ¸ ì™„ë£Œ! Reward: {Reward} gold.");
     }
 }

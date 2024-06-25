@@ -12,7 +12,7 @@ public class QuestManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // ´Ù¸¥ ¾À¿¡¼­µµ ÆÄ±«µÇÁö ¾Êµµ·Ï ¼³Á¤
+            DontDestroyOnLoad(gameObject); // ë‹¤ë¥¸ ì”¬ì—ì„œë„ íŒŒê´´ë˜ì§€ ì•Šë„ë¡ ì„¤ì •
         }
         else
         {
@@ -35,7 +35,7 @@ public class QuestManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Quest not found or already completed: " + questName);
+            Debug.LogWarning(questName + "ì™„ë£Œ!");
         }
     }
 

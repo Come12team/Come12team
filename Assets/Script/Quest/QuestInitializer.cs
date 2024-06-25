@@ -8,26 +8,26 @@ public class QuestInitializer : MonoBehaviour
     void Start()
     {
         QuestManager.Instance.AddQuest(new Quest(
-            "°ñµå È¹µæ",
-            "°ñµå 500°ñµå ¸ğÀ¸±â",
+            "ê³¨ë“œ íšë“",
+            "ê³¨ë“œ 500ê³¨ë“œ ëª¨ìœ¼ê¸°",
             500
         ));
 
         QuestManager.Instance.AddQuest(new Quest(
-            "¸ó½ºÅÍ Ã³Ä¡",
-            "¸ó½ºÅÍ 10¸¶¸® Ã³Ä¡",
+            "ëª¬ìŠ¤í„° ì²˜ì¹˜",
+            "ëª¬ìŠ¤í„° 10ë§ˆë¦¬ ì²˜ì¹˜",
             500
         ));
 
         QuestManager.Instance.AddQuest(new Quest(
-            "¼ÒÈ¯ 10È¸ ÁøÇà",
-            "Ä³¸¯ÅÍ 10È¸ ¼ÒÈ¯",
+            "ì†Œí™˜ 10íšŒ ì§„í–‰",
+            "ìºë¦­í„° 10íšŒ ì†Œí™˜",
             100
         ));
 
         QuestManager.Instance.AddQuest(new Quest(
-            "°­È­ 10È¸ ÁøÇà",
-            "Ä³¸¯ÅÍ 10È¸ °­È­",
+            "ê°•í™” 10íšŒ ì§„í–‰",
+            "ìºë¦­í„° 10íšŒ ê°•í™”",
             100
         ));
     }

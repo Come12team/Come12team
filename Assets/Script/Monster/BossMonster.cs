@@ -12,6 +12,7 @@ public class BossMonster : MonoBehaviour
     //private System.Random random = new System.Random();
     public int health = 100;
     public float timeLimit = 30f; // 30초제한
+    public string enemyType = "BossMonster";
 
     private void Start()
     {
@@ -81,6 +82,8 @@ public class BossMonster : MonoBehaviour
     private void Die()
     {
         StopAllCoroutines(); // 모든 코루틴 중지
+        RewardManager.Instance.GiveReward(enemyType);
+        MoneyManager.Instance.AddMonstersDefeated(1);
         Destroy(gameObject);
     }
 
