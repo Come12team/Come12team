@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enemyPrefab; // 적 프리팹
+    private GameObject[] enemyPrefabs; // 적 프리팹 배열
     [SerializeField]
     private GameObject bossPrefab; // 적 프리팹 !!
     [SerializeField]
@@ -29,10 +29,12 @@ public class MonsterSpawner : MonoBehaviour
     private int enemiesPerWave = 10; // 웨이브당 생성할 적의 기본 수
     private int totalEnemiesToSpawn = 10; // 현재 웨이브에서 생성할 총 적의 수
     private List<Monster> currentEnemies = new List<Monster>(); // 현재 웨이브에서 생성된 적의 리스트
+    private bool goButnClicked = false;
 
     private void Awake()
     {
         StartCoroutine("StartNextWave");
+        goButn.onClick.AddListener(OnGoButtonClick); // Go 버튼 클릭 이벤트 등록
     }
     private IEnumerator StartNextWave()
     {
@@ -75,6 +77,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         while (enemyCount < totalEnemiesToSpawn)
         {
+            GameObject enemyPrefab = enemyPrefabs[waveCount % enemyPrefabs.Length];
             GameObject clone = Instantiate(enemyPrefab); // 적 오브젝트 생성
             Monster monster = clone.GetComponent<Monster>(); // 방금 생성된 적의 Monster 컴포넌트
 
@@ -104,7 +107,7 @@ public class MonsterSpawner : MonoBehaviour
         currentEnemies.Remove(monster);
     }
 
-    private bool goButnClicked = false;
+
 
     private void OnGoButtonClick()
     {

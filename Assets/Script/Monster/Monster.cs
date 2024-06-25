@@ -9,6 +9,7 @@ public class Monster : MonoBehaviour
     private Transform[] wayPoints; // 이동 경로 정보
     private int currentIndex = 0; //현재 목표지점 인덱스
     private MonsterManager monsterManager; // 오브젝트 이동 제어 
+    private Animator animator; // Animator 컴포넌트에 대한 참조
     private int health = 100; // 몬스터 체력
     private float moveThreshold = 0.02f; // 이동 거리 값
     public string enemyType = "Monster";
@@ -78,6 +79,10 @@ public class Monster : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+
+        // 히트 애니메이션 트리거 설정
+        animator.SetTrigger("Hit");
+
         if (health <= 0)
         {
             Die();
