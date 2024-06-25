@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public int playerScore;
     public int playerHealth;
-
+    public CharacterData characterData;
     // 플레이 중 여부
 
     // 게임 종료 UI 캔버스
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InitializeGame();
+
     }
 
     private void InitializeGame()
