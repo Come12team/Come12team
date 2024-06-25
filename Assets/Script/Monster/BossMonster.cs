@@ -9,9 +9,10 @@ public class BossMonster : MonoBehaviour
     private int currentIndex = 0;
     private MonsterManager monsterManager;
     //private Player player; // 플레이어(소환수)?
-    //private System.Random random = new System.Random();
+    private System.Random random = new System.Random();
     public int health = 100;
     public float timeLimit = 30f; // 30초제한
+    public string enemyType = "BossMonster";
 
     private void Start()
     {
@@ -61,11 +62,11 @@ public class BossMonster : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //if (random.NextDouble() <= 0.03) //3퍼센트확률로 공격무효
-        //{
-        //    Debug.Log("Attack blocked!");
-        //    return;
-        //}
+        if (random.NextDouble() <= 0.03) //3퍼센트확률로 공격무효
+        {
+            Debug.Log("Attack blocked!");
+            return;
+        }
         health -= damage;
         if (health <= 0)
         {
@@ -81,6 +82,8 @@ public class BossMonster : MonoBehaviour
     private void Die()
     {
         StopAllCoroutines(); // 모든 코루틴 중지
+        RewardManager.Instance.GiveReward(enemyType);
+        MoneyManager.Instance.AddMonstersDefeated(1);
         Destroy(gameObject);
     }
 

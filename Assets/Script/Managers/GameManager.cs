@@ -89,4 +89,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
+
+    public void OnWaveComplete()
+    {
+        RewardManager.Instance.GiveWaveCompletionReward();
+        // 웨이브가 완료될 때 RewardManager에게 웨이브 완료 보상을 주도록 호출
+    }
+
 }

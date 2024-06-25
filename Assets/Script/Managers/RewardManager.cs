@@ -7,26 +7,28 @@ public class RewardManager : MonoBehaviour
     public static RewardManager Instance { get; private set; }
 
     private Dictionary<string, int> rewards;
-    private int WaveCompletionReward = 100;  // ¿şÀÌºê Å¬¸®¾î º¸»ó
-    private int currentStage = 1;                 // ÇöÀç ½ºÅ×ÀÌÁö
+    private int WaveCompletionReward = 100;  // ì›¨ì´ë¸Œ í´ë¦¬ì–´ ë³´ìƒ
+    private int currentStage = 1;                 // í˜„ì¬ ìŠ¤í…Œì´ì§€
+    public int monstersPerDiamond = 3;       // ë‹¤ì´ì•„ëª¬ë“œë¥¼ íšë“í•˜ê¸° ìœ„í•œ ëª¬ìŠ¤í„° ì²˜ì¹˜ ìˆ˜
+    public int monstersDefeatedForDiamond = 0; // ëª¬ìŠ¤í„°ë§ˆë‹¤ ì²´í¬ í• ë•Œë§ˆë‹¤ ì¦ê°€
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // ´Ù¸¥ ¾À¿¡¼­µµ ÆÄ±«µÇÁö ¾Êµµ·Ï ¼³Á¤
+            DontDestroyOnLoad(gameObject); // ë‹¤ë¥¸ ì”¬ì—ì„œë„ íŒŒê´´ë˜ì§€ ì•Šë„ë¡ ì„¤ì •
         }
         else
         {
             Destroy(gameObject);
         }
 
-        // º¸»ó ÃÊ±âÈ­
+        // ë³´ìƒ ì´ˆê¸°í™”
         rewards = new Dictionary<string, int>
         {
-            { "NormalEnemy", 50 }, //Àâ¸÷ 
-            { "BossEnemy", 100 }   //º¸½º
+            { "NormalEnemy", 50 }, //ì¡ëª¹ 
+            { "BossEnemy", 100 }   //ë³´ìŠ¤
         };
     }
 
@@ -36,9 +38,10 @@ public class RewardManager : MonoBehaviour
         {
             MoneyManager.Instance.AddMoney(rewards[enemyType]);
         }
-        else
+        // ë‹¤ì´ì•„ëª¬ë“œ ì¡°ê±´ ì²´í¬
+        if (monstersDefeatedForDiamond % monstersPerDiamond == 0)
         {
-            Debug.LogWarning("Unknown enemy type: " + enemyType);
+            MoneyManager.Instance.AddDiamonds(1); // ëª¬ìŠ¤í„° ì¼ì • ìˆ˜ ì²˜ì¹˜ë§ˆë‹¤ ë‹¤ì´ì•„ëª¬ë“œ 1ê°œ ì§€ê¸‰
         }
     }
 
@@ -49,17 +52,3 @@ public class RewardManager : MonoBehaviour
         currentStage++;
     }
 }
-
-/* public string enemyType;  // ÀûÀÇ Á¾·ù ("NormalEnemy" ¶Ç´Â "BossEnemy") // ¸ó½ºÅÍ¸Å´ÏÀú¿¡ Ãß°¡
- * .
- * .
- * .
- * RewardManager.Instance.GiveReward(enemyType); // ¸ó½ºÅÍ¸Å´ÏÀú¿¡ ¸ó½ºÅÍ Á×´Â·ÎÁ÷¿¡ Ãß°¡
- * 
- * 
- * 
- * public void OnWaveComplete()
-    {
-        RewardManager.Instance.GiveWaveCompletionReward();  // °ÔÀÓ¸Å´ÏÀú¿¡ Ãß°¡
-    }
-*/

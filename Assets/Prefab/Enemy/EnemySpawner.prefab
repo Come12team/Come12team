@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6684972975909040650
+--- !u!1 &5537722906461713096
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4615757639564827601}
-  - component: {fileID: 6441780154736628079}
+  - component: {fileID: 5126619445141186837}
+  - component: {fileID: 3249252195468441904}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4615757639564827601
+--- !u!4 &5126619445141186837
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6684972975909040650}
+  m_GameObject: {fileID: 5537722906461713096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.7740874, y: -0.4334991, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6441780154736628079
+--- !u!114 &3249252195468441904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6684972975909040650}
+  m_GameObject: {fileID: 5537722906461713096}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 467c948c43212204e89169b333771098, type: 3}
@@ -48,6 +48,7 @@ MonoBehaviour:
   bossPrefab: {fileID: 8393074543838137248, guid: 92c0021af4007854f9ae8de6e1f851e6, type: 3}
   spawnerTime: 0.8
   bossSpawnDelay: 20
+  waveUIText: {fileID: 0}
   wayPoints:
   - {fileID: 0}
   - {fileID: 0}
