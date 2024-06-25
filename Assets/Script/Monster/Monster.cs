@@ -87,7 +87,7 @@ public class Monster : MonoBehaviour
     {
         // 몬스터 사망 처리 (예: 오브젝트 제거, 사망 애니메이션 등)
         RewardManager.Instance.GiveReward(enemyType);
-        //MoneyManager.Instance.AddMonstersDefeated(1);
+        MoneyManager.Instance.AddMonstersDefeated(1);
         Destroy(gameObject);
     }
 
