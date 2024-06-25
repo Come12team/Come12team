@@ -38,19 +38,17 @@ public class MoneyManager : MonoBehaviour
         Debug.Log("Money: " + money);
     }
 
-    public bool PayMoney(int amount)
+    public void PayMoney(int amount)
     {
         if (money >= amount)
         {
             money -= amount;
-            UpdateMoneyUI();  // UI 업데이트
+            UpdateMoneyUI();
             Debug.Log("Money: " + money);
-            return true;
         }
         else
         {
             Debug.LogWarning("돈이 부족합니다.");
-            return false;
         }
     }
     public int GetCurrentMoney()

@@ -81,7 +81,8 @@ public class Monster : MonoBehaviour
         health -= damage;
 
         // 히트 애니메이션 트리거 설정
-        animator.SetTrigger("Hit");
+        if(animator) 
+            animator.SetTrigger("Hit");
 
         if (health <= 0)
         {
@@ -92,8 +93,8 @@ public class Monster : MonoBehaviour
     private void Die()
     {
         // 몬스터 사망 처리 (예: 오브젝트 제거, 사망 애니메이션 등)
-        RewardManager.Instance.GiveReward(enemyType);
-        MoneyManager.Instance.AddMonstersDefeated(1);
+      //  RewardManager.Instance.GiveReward(enemyType);
+      //  MoneyManager.Instance.AddMonstersDefeated(1);
         Destroy(gameObject);
     }
 
