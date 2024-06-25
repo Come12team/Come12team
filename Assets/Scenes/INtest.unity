@@ -225,6 +225,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &300645005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6932785873746011972, guid: e24ab542c01765843b0454efeac34960, type: 3}
+  m_PrefabInstance: {fileID: 1503978352}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &323631670 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9108294674801557661, guid: c0c69be8e79ee2c4bb7fc1a4f095b0e8, type: 3}
@@ -239,6 +244,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &571516017 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 262377477046806027, guid: e24ab542c01765843b0454efeac34960, type: 3}
+  m_PrefabInstance: {fileID: 1503978352}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &603388583 stripped
@@ -1240,9 +1256,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3249252195468441904, guid: c066dda85d0ecd14abc237dddd7b60a7, type: 3}
+      propertyPath: goButn
+      value: 
+      objectReference: {fileID: 571516017}
+    - target: {fileID: 3249252195468441904, guid: c066dda85d0ecd14abc237dddd7b60a7, type: 3}
       propertyPath: waveUIText
       value: 
       objectReference: {fileID: 388035975}
+    - target: {fileID: 3249252195468441904, guid: c066dda85d0ecd14abc237dddd7b60a7, type: 3}
+      propertyPath: stageClearPN
+      value: 
+      objectReference: {fileID: 300645005}
     - target: {fileID: 3249252195468441904, guid: c066dda85d0ecd14abc237dddd7b60a7, type: 3}
       propertyPath: bossSpawnDelay
       value: 1

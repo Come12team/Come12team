@@ -9,9 +9,8 @@ public class RewardManager : MonoBehaviour
     private Dictionary<string, int> rewards;
     private int WaveCompletionReward = 100;  // 웨이브 클리어 보상
     private int currentStage = 1;                 // 현재 스테이지
-    public int monstersPerDiamond = 3;       // 다이아몬드를 획득하기 위한 몬스터 처치 수
-    public int monstersDefeatedForDiamond = 0; // 몬스터마다 체크 할때마다 증가
-
+    public int monstersPerDiamond = 3;       // 몬스터마다 체크 할때마다 증가할 몬스터 수
+    public int monstersDefeatedForDiamond = 0; // 다이아몬드를 획득하기 위한 몬스터 처치 수
     private void Awake()
     {
         if (Instance == null)
@@ -27,8 +26,8 @@ public class RewardManager : MonoBehaviour
         // 보상 초기화
         rewards = new Dictionary<string, int>
         {
-            { "NormalEnemy", 50 }, //잡몹 
-            { "BossEnemy", 100 }   //보스
+            { "Monster", 50 }, //잡몹 
+            { "BossMonster", 100 }   //보스
         };
     }
 
@@ -38,6 +37,8 @@ public class RewardManager : MonoBehaviour
         {
             MoneyManager.Instance.AddMoney(rewards[enemyType]);
         }
+
+        monstersDefeatedForDiamond++; // 몬스터를 처치할 때마다 증가
         // 다이아몬드 조건 체크
         if (monstersDefeatedForDiamond % monstersPerDiamond == 0)
         {
