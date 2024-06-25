@@ -17,11 +17,6 @@ public class Monster : MonoBehaviour
     public delegate void DeathDelegate(Monster monster);
     public event DeathDelegate OnDeath;
 
-    private void Awake()
-    {
-        animator = GetComponent<Animator>(); // Animator 컴포넌트 가져오기
-    }
-
     public void Setup(Transform[] wayPoints)
     {
         monsterManager = GetComponent<MonsterManager>();
@@ -88,9 +83,6 @@ public class Monster : MonoBehaviour
         // 히트 애니메이션 트리거 설정
         animator.SetTrigger("Hit");
 
-        // 히트 애니메이션 작동 되는지 확인
-        Debug.Log("Hit animation triggered. Remaining health: " + health);
-
         if (health <= 0)
         {
             Die();
@@ -99,35 +91,10 @@ public class Monster : MonoBehaviour
 
     private void Die()
     {
-        // RewardManager와 MoneyManager의 인스턴스가 null인지 체크
-        if (RewardManager.Instance != null)
-        {
-            RewardManager.Instance.GiveReward(enemyType);
-        }
-        else
-        {
-            Debug.LogError("RewardManager.Instance is null!");
-        }
-
-        if (MoneyManager.Instance != null)
-        {
-            MoneyManager.Instance.AddMonstersDefeated(1);
-        }
-        else
-        {
-            Debug.LogError("MoneyManager.Instance is null!");
-        }
-
-        // 게임 오브젝트 삭제
+        // 몬스터 사망 처리 (예: 오브젝트 제거, 사망 애니메이션 등)
+        RewardManager.Instance.GiveReward(enemyType);
+        MoneyManager.Instance.AddMonstersDefeated(1);
         Destroy(gameObject);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) // 스페이스 키를 누르면
-        {
-            TakeDamage(10); // 10의 데미지를 입힘
-        }
     }
 
 }
