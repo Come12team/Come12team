@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3540637689092297467}
   - component: {fileID: 2775429821614443102}
-  - component: {fileID: -6015789250767377040}
   - component: {fileID: 756712817198354594}
   - component: {fileID: -4412653929278727540}
   m_Layer: 0
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 22
-  m_Sprite: {fileID: 21300000, guid: 13c62442a02277d479ce1a56b893a6e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,21 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-6015789250767377040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072862318893525017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10f6eb5323ecf3240be513275996dea2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  speed: 1
-  impactEffectPrefab: {fileID: 0}
 --- !u!50 &756712817198354594
 Rigidbody2D:
   serializedVersion: 4
@@ -165,7 +149,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.21, y: 0.2}
+    oldSize: {x: 1.2, y: 0.66}
     newSize: {x: 0.67, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
