@@ -11,6 +11,10 @@ public class Monster : MonoBehaviour
     private MonsterManager monsterManager; // 오브젝트 이동 제어 
     private int health = 100; // 몬스터 체력
     private float moveThreshold = 0.02f; // 이동 거리 값
+    public string enemyType = "Monster";
+
+    public delegate void DeathDelegate(Monster monster);
+    public event DeathDelegate OnDeath;
 
     public void Setup(Transform[] wayPoints)
     {
@@ -35,8 +39,6 @@ public class Monster : MonoBehaviour
 
         while(true)
         {
-            // 적 오브젝트 회전
-            //transform.Rotate(Vector3.forward * 10);
 
             // 적의 현재 위치와 목표위치의 거리가 0.02 * movement2D.MoveSpeed보다 작을 때 if 조건문 실행
             // Tip.movement2D.MoveSpeed를 곱해주는 이유는 속도가 빠르면 한 프레임에 0.02보다 크게 움직이기 때문에
@@ -84,6 +86,8 @@ public class Monster : MonoBehaviour
     private void Die()
     {
         // 몬스터 사망 처리 (예: 오브젝트 제거, 사망 애니메이션 등)
+        RewardManager.Instance.GiveReward(enemyType);
+        MoneyManager.Instance.AddMonstersDefeated(1);
         Destroy(gameObject);
     }
 

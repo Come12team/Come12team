@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour
@@ -13,45 +14,82 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]
     private float bossSpawnDelay = 20f;   // 보스 생성 !!
     [SerializeField]
+    private TMP_Text waveUIText; // Wave UI 텍스트
+    [SerializeField]
     private Transform[] wayPoints; // 현재 스테이지의 이동 경로
 
     private bool bossSpawned = false; // 보스가 생성되었는지 !!
-
     private int enemyCount = 0; // 생성된 적의 개수
-
+    private int waveCount = 0; // 현재 웨이브 번호
+    private int enemiesPerWave = 10; // 웨이브당 생성할 적의 기본 수
+    private int totalEnemiesToSpawn = 10; // 현재 웨이브에서 생성할 총 적의 수
+    private List<Monster> currentEnemies = new List<Monster>(); // 현재 웨이브에서 생성된 적의 리스트
 
     private void Awake()
     {
-        //적 생성 코루틴 함수 호출
-        StartCoroutine("SpawnEnemy");
-        StartCoroutine("SpawnBoss"); //!!
+        StartCoroutine("StartNextWave");
+    }
+    private IEnumerator StartNextWave()
+    {
+        while (waveCount < 10)
+        {
+            waveCount++;
+            enemyCount = 0;
+            bossSpawned = false;
+            totalEnemiesToSpawn = waveCount * enemiesPerWave;
+
+            // 웨이브 UI 텍스트 업데이트 및 활성화
+            waveUIText.text = "Wave " + waveCount;
+            waveUIText.gameObject.SetActive(true);
+
+            // 잠시 대기 후 텍스트 비활성화
+            yield return new WaitForSeconds(3f);
+            waveUIText.gameObject.SetActive(false);
+
+            StartCoroutine("SpawnEnemy");
+
+            // 적이 모두 사망할 때까지 대기
+            yield return new WaitUntil(() => currentEnemies.Count == 0);
+
+            // 웨이브 사이의 간격 (예: 5초)
+            yield return new WaitForSeconds(5f);
+        }
+
+        // 모든 웨이브가 끝났을 때
+        Debug.Log("All waves completed!");
     }
 
     private IEnumerator SpawnEnemy()
     {
-        while (enemyCount < 10)
+        while (enemyCount < totalEnemiesToSpawn)
         {
-            GameObject clone = Instantiate(enemyPrefab);     // 적 오브젝트 생성
-            Monster monster = clone.GetComponent<Monster>(); // 방금 생성된 적의 Enemy 컴포넌트
+            GameObject clone = Instantiate(enemyPrefab); // 적 오브젝트 생성
+            Monster monster = clone.GetComponent<Monster>(); // 방금 생성된 적의 Monster 컴포넌트
 
-            monster.Setup(wayPoints);                          // wayPoint 정보를 매개변수로 Setup() 호출
+            monster.Setup(wayPoints); // wayPoint 정보를 매개변수로 Setup() 호출
+            monster.OnDeath += HandleEnemyDeath; // 적 사망 이벤트 핸들러 추가
 
-            enemyCount++;                                      // 생성된 적 개수 증가
+            currentEnemies.Add(monster); // 생성된 적을 리스트에 추가
+            enemyCount++; // 생성된 적 개수 증가
 
-            yield return new WaitForSeconds(spawnerTime);      // spawnTime 시간 동안 대기
+            yield return new WaitForSeconds(spawnerTime); // spawnerTime 시간 동안 대기
+        }
+
+        // 적이 모두 생성된 후 일정 시간 후 보스 생성
+        if (!bossSpawned)
+        {
+            yield return new WaitForSeconds(bossSpawnDelay);
+
+            GameObject bossClone = Instantiate(bossPrefab); // 보스 오브젝트 생성
+            BossMonster boss = bossClone.GetComponent<BossMonster>(); // 방금 생성된 보스의 BossMonster 컴포넌트
+            boss.Setup(wayPoints);
+
+            bossSpawned = true;
         }
     }
-
-    private IEnumerator SpawnBoss() // 보스가 생성 되고 생성이 되었다면 한번만생성하게 됨!!
+    private void HandleEnemyDeath(Monster monster)
     {
-        yield return new WaitForSeconds(bossSpawnDelay);
-
-        GameObject bossClone = Instantiate(bossPrefab);
-        BossMonster boss = bossClone.GetComponent<BossMonster>();
-        boss.Setup(wayPoints); 
-
-        bossSpawned = true;       
-        
+        currentEnemies.Remove(monster);
     }
 
 }
