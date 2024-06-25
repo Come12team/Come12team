@@ -12,11 +12,22 @@ public class SummonManager : MonoBehaviour
     public int playerGold = 100; // 플레이어의 초기 재화
     public CharacterManager characterManager; // 캐릭터 매니저 참조
 
-    // 유닛 이름별 소환된 위치를 저장하는 딕셔너리
-    private Dictionary<string, Vector3> unitSpawnPositions = new Dictionary<string, Vector3>();
+    private int gridWidth = 4; // 가로 칸 수
+    private int gridHeight = 4; // 세로 칸 수
+    private int[,] grid; // 인벤토리 그리드
 
-    public void Start()
+    void Start()
     {
+        // 그리드 초기화
+        grid = new int[gridWidth, gridHeight];
+        for (int y = 0; y < gridHeight; y++)
+        {
+            for (int x = 0; x < gridWidth; x++)
+            {
+                grid[x, y] = 0; // 0은 빈 칸을 의미
+            }
+        }
+
         // 버튼 클릭 이벤트 설정
         summonButton.onClick.AddListener(SummonUnit);
     }
@@ -46,19 +57,30 @@ public class SummonManager : MonoBehaviour
             return;
         }
 
-        // 유닛의 소환 위치 결정
-        Vector3 spawnPosition;
-        if (unitSpawnPositions.TryGetValue(unitName, out spawnPosition))
+        // 그리드에서 빈 위치 찾기 (위에서 아래로 검색)
+        Vector3 spawnPosition = Vector3.zero;
+        bool positionFound = false;
+
+        for (int y = gridHeight - 1; y >= 0; y--)
         {
-            // 이미 소환된 유닛이면 저장된 위치 사용
-            Debug.Log($"{unitName} 유닛이 기존 위치에 소환됩니다: {spawnPosition}");
+            for (int x = 0; x < gridWidth; x++)
+            {
+                if (grid[x, y] < 3)
+                {
+                    // 빈 칸을 찾음
+                    spawnPosition = GetPositionFromGrid(x, y);
+                    grid[x, y] ++; // 그리드 업데이트
+                    positionFound = true;
+                    break;
+                }
+            }
+            if (positionFound) break;
         }
-        else
+
+        if (!positionFound)
         {
-            // 처음 소환되는 유닛이면 랜덤 위치 계산
-            spawnPosition = GetRandomPositionInSpawnArea();
-            unitSpawnPositions[unitName] = spawnPosition; // 위치 저장
-            Debug.Log($"{unitName} 유닛이 새로운 위치에 소환됩니다: {spawnPosition}");
+            Debug.LogWarning("빈 위치를 찾지 못했습니다.");
+            return;
         }
 
         // 유닛 생성 및 캐릭터 매니저에 추가
@@ -68,12 +90,16 @@ public class SummonManager : MonoBehaviour
         characterManager.AddCharacter(newCharacter);
     }
 
-    Vector3 GetRandomPositionInSpawnArea()
+    Vector3 GetPositionFromGrid(int x, int y)
     {
-        // 스폰 영역의 경계를 가져와서 랜덤 위치 계산
+        // 스폰 영역의 경계를 가져와서 그리드 위치를 계산
         Bounds bounds = spawnArea.bounds;
-        float x = Random.Range(bounds.min.x, bounds.max.x);
-        float y = Random.Range(bounds.min.y, bounds.max.y);
-        return new Vector3(x, y, 0);
+        float cellWidth = bounds.size.x / gridWidth;
+        float cellHeight = bounds.size.y / gridHeight;
+
+        float posX = bounds.min.x + x * cellWidth + cellWidth / 2;
+        float posY = bounds.min.y + y * cellHeight + cellHeight / 2;
+
+        return new Vector3(posX, posY, 0);
     }
 }
