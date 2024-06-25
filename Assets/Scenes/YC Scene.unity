@@ -1227,6 +1227,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5537722906461713096, guid: c066dda85d0ecd14abc237dddd7b60a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6441780154736628079, guid: c066dda85d0ecd14abc237dddd7b60a7, type: 3}
       propertyPath: wayPoints.Array.data[0]
       value: 
