@@ -556,7 +556,7 @@ GameObject:
   - component: {fileID: 4537069980086661786}
   - component: {fileID: 3209044572894181126}
   m_Layer: 5
-  m_Name: MainBtn
+  m_Name: LobbyBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
