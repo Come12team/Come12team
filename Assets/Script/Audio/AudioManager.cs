@@ -116,9 +116,4 @@ public class AudioManager : MonoBehaviour
     {
         LobbySoundSetPN.SetActive(true);
     }
-
-    public void PNOnOff2()
-    {
-        PlaySoundSetPN.SetActive(true);
-    }
 }

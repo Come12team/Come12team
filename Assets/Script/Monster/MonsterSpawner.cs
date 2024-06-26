@@ -9,33 +9,28 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] enemyPrefabs; // 적 프리팹 배열
     [SerializeField]
-    private GameObject bossPrefab; // 적 프리팹 !!
+    private GameObject bossPrefab; // 보스 프리팹
     [SerializeField]
     private float spawnerTime; // 적 생성 주기
     [SerializeField]
-    private float bossSpawnDelay = 20f;   // 보스 생성 !!
+    private float bossSpawnDelay = 20f; // 보스 생성 지연 시간
     [SerializeField]
     private TMP_Text waveUIText; // Wave UI 텍스트
     [SerializeField]
     private Transform[] wayPoints; // 현재 스테이지의 이동 경로
-    [SerializeField]
-    private GameObject stageClearPN; 
-    [SerializeField]
-    private Button goButn; 
 
-    private bool bossSpawned = false; // 보스가 생성되었는지 !!
+    private bool bossSpawned = false; // 보스가 생성되었는지 여부
     private int enemyCount = 0; // 생성된 적의 개수
     private int waveCount = 0; // 현재 웨이브 번호
     private int enemiesPerWave = 10; // 웨이브당 생성할 적의 기본 수
     private int totalEnemiesToSpawn = 10; // 현재 웨이브에서 생성할 총 적의 수
     private List<Monster> currentEnemies = new List<Monster>(); // 현재 웨이브에서 생성된 적의 리스트
-    private bool goButnClicked = false;
 
     private void Awake()
     {
-        StartCoroutine("StartNextWave");
-        goButn.onClick.AddListener(OnGoButtonClick); // Go 버튼 클릭 이벤트 등록
+        StartCoroutine(StartNextWave());
     }
+
     private IEnumerator StartNextWave()
     {
         while (waveCount < 10)
@@ -46,19 +41,10 @@ public class MonsterSpawner : MonoBehaviour
             totalEnemiesToSpawn = waveCount * enemiesPerWave;
 
             // 적 생성 시작
-            StartCoroutine("SpawnEnemy");
+            StartCoroutine(SpawnEnemy());
 
             // 적이 모두 사망할 때까지 대기
             yield return new WaitUntil(() => currentEnemies.Count == 0);
-
-            // Stage Clear UI 활성화
-            stageClearPN.SetActive(true);
-
-            // Go 버튼 클릭을 기다림
-            yield return new WaitUntil(() => goButnClicked);
-
-            // Go 버튼 클릭 후 Stage Clear UI 비활성화
-            stageClearPN.SetActive(false);
 
             // 웨이브 UI 텍스트 업데이트 및 활성화
             waveUIText.text = "Wave " + waveCount;
@@ -102,15 +88,9 @@ public class MonsterSpawner : MonoBehaviour
             bossSpawned = true;
         }
     }
+
     private void HandleEnemyDeath(Monster monster)
     {
         currentEnemies.Remove(monster);
-    }
-
-
-
-    private void OnGoButtonClick()
-    {
-        goButnClicked = true;
     }
 }
