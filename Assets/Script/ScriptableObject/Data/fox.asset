@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: fox
   m_EditorClassIdentifier: 
   characterName: fox
-  grade: 3
+  grade: 0
   characterSprite: {fileID: 21300000, guid: 923dcf7e3c48a3d48baeff187c37198d, type: 3}
   attackPower: 17
   attackSpeed: 1.5

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: tiger
   m_EditorClassIdentifier: 
   characterName: tiger
-  grade: 4
+  grade: 0
   characterSprite: {fileID: 21300000, guid: 0ad1f9e0bfee8364ebaa6e64972e1836, type: 3}
   attackPower: 50
   attackSpeed: 1

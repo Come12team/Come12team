@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: peacebird
   m_EditorClassIdentifier: 
   characterName: peacebird
-  grade: 4
+  grade: 0
   characterSprite: {fileID: 21300000, guid: 5dd749131c3168d4dbd33e7299123eef, type: 3}
   attackPower: 25
   attackSpeed: 2

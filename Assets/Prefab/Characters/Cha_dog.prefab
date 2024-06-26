@@ -120,3 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: ad3322d0017f5dc4cbbd600ac20c66c2, type: 2}
+  m_fDetectRange: 2
