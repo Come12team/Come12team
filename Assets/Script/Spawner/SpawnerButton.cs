@@ -12,7 +12,7 @@ public class SpawnerButton : MonoBehaviour
 
         if (success)
         {
-            SpawnerCharacter character = SpawnerSystem.Instance.RollSpawnerWithCurrentDiamondProbabilities(); // 가챠 결과 캐릭터 가져오기
+            CharacterData character = SpawnerSystem.Instance.RollSpawner(SpawnerSystem.Instance.diamondGradeProbabilities); // 가챠 결과 캐릭터 가져오기
             SpawnerUIManager.ShowSpawnerResult(character); // UI 매니저를 통해 결과 표시
         }
     }

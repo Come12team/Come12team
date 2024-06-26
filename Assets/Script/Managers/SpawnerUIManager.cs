@@ -8,12 +8,12 @@ public class SpawnerUIManager : MonoBehaviour
     public Image SpawnerResultImage;
     public Text SpawnerResultText;
 
-    public void ShowSpawnerResult(SpawnerCharacter character)
+    public void ShowSpawnerResult(CharacterData character)
     {
-        if (SpawnerResultImage != null && SpawnerResultText != null)
+        if (SpawnerResultImage != null && SpawnerResultText != null && character != null)
         {
-            SpawnerResultImage.sprite = character.Image;
-            SpawnerResultText.text = $"{character.Grade} character: {character.Name} 획득!";
+            SpawnerResultImage.sprite = character.characterSprite; // 이미지 설정
+            SpawnerResultText.text = $"{character.grade} character: {character.characterName} 획득!"; // 텍스트 설정
         }
     }
 }

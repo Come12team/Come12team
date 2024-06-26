@@ -45,6 +45,5 @@ public class RewardManager : MonoBehaviour
     {
         int waveCompletionPoints = WaveCompletionReward * currentStage;
         MoneyManager.Instance.AddMoney(waveCompletionPoints);
-        currentStage++;
     }
 }

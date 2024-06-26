@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static CharacterData;
+
 public class SpawnerCharacter : MonoBehaviour
 {
-    public string Name { get; private set; }
-    public CharacterGrade Grade { get; private set; }
-    public Sprite Image { get; private set; } // 캐릭터 이미지
+    public string CharacterName { get; set; }
+    public CharacterData.CharacterGrade Grade { get; set; }
+    public Sprite CharacterSprite { get; set; }
 
-    public SpawnerCharacter(string name, CharacterGrade grade, Sprite image)
+    // 생성자
+    public SpawnerCharacter(string characterName, CharacterData.CharacterGrade grade, Sprite characterSprite)
     {
-        Name = name;
+        CharacterName = characterName;
         Grade = grade;
-        Image = image;
+        CharacterSprite = characterSprite;
     }
 }
