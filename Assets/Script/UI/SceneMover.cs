@@ -55,7 +55,7 @@ public class SceneMover : MonoBehaviour
 
     void OnStageButtonClick()
     {
-        SceneManager.LoadScene("PlayScene_UITest");
+        SceneManager.LoadScene("PlayScene_UITest 2");
     }
 
     void OnLobbyButtonClick()

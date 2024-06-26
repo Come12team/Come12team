@@ -181,6 +181,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 465846675978575142, guid: 83c31b27ef7d9f54a9e3df95c8f8f53f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d1400a595e9c0dd418b2dca661b666b4, type: 3}
+    - target: {fileID: 3058084232001778680, guid: 83c31b27ef7d9f54a9e3df95c8f8f53f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3517227ba26fb2c4a865c0405a8af29b, type: 3}
     - target: {fileID: 4099231589411924196, guid: 83c31b27ef7d9f54a9e3df95c8f8f53f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -261,10 +269,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5473030356570454632, guid: 83c31b27ef7d9f54a9e3df95c8f8f53f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3517227ba26fb2c4a865c0405a8af29b, type: 3}
+    - target: {fileID: 5494607681109197118, guid: 83c31b27ef7d9f54a9e3df95c8f8f53f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 125632676f035c847ac2157d17585655, type: 3}
+    - target: {fileID: 6990661778010169796, guid: 83c31b27ef7d9f54a9e3df95c8f8f53f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3517227ba26fb2c4a865c0405a8af29b, type: 3}
+    - target: {fileID: 7083358750445924169, guid: 83c31b27ef7d9f54a9e3df95c8f8f53f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bdeef483ccc5dd04bbfa86d8ecb03066, type: 3}
+    - target: {fileID: 7921189643130123555, guid: 83c31b27ef7d9f54a9e3df95c8f8f53f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3517227ba26fb2c4a865c0405a8af29b, type: 3}
     - target: {fileID: 8168202433532477274, guid: 83c31b27ef7d9f54a9e3df95c8f8f53f, type: 3}
       propertyPath: m_Name
       value: StartScreenUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8527338978169406583, guid: 83c31b27ef7d9f54a9e3df95c8f8f53f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7895959536a7a5142a61f9aae4f11e21, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
