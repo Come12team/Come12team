@@ -10,13 +10,15 @@ public class CharacterData : ScriptableObject
     public Sprite characterSprite; // 유닛 이미지
     public int attackPower; //유닛 공격력
     public float attackSpeed; //유닛 공격속도
-}
+    public float attackRange; //유닛 사정거
+    public int baseattackPower; //
 
-public enum CharacterGrade
-{
-    Normal,
-    Magic,
-    Hero,
-    Legendary,
-    Mythic
+    public enum CharacterGrade
+    {
+        Normal,
+        Magic,
+        Hero,
+        Legendary,
+        Mythic
+    }
 }
