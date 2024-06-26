@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager Instance { get; private set; }
-
     public int money = 50; // 현재 돈
     public int diamonds = 0;  // 현재 다이아몬드
     public Text moneyText;
@@ -12,7 +11,6 @@ public class MoneyManager : MonoBehaviour
     private int monstersDefeated = 0;
     private int charactersSummoned = 0;
     private int charactersEnhanced = 0;
-
     private void Awake()
     {
         if (Instance == null)
@@ -29,7 +27,6 @@ public class MoneyManager : MonoBehaviour
     {
         UpdateMoneyUI();
     }
-
     public void AddMoney(int amount)
     {
         money += amount;
@@ -37,7 +34,6 @@ public class MoneyManager : MonoBehaviour
         CheckQuestCompletion();
         Debug.Log("Money: " + money);
     }
-
     public bool PayMoney(int amount)
     {
         if (money >= amount)
@@ -57,18 +53,15 @@ public class MoneyManager : MonoBehaviour
     {
         return money;
     }
-
     public void AddDiamonds(int amount)
     {
         diamonds += amount;
         UpdateDiamondsUI();
         Debug.Log("Diamonds: " + diamonds);
     }
-
     public bool PayDiamonds(int amount)
     {
         bool success = false; // 성공 여부를 저장할 변수를 초기화합니다.
-
         if (diamonds >= amount)
         {
             diamonds -= amount;
@@ -83,25 +76,21 @@ public class MoneyManager : MonoBehaviour
         }
         return success; // 성공 여부를 반환합니다.
     }
-
     public void AddMonstersDefeated(int count)
     {
         monstersDefeated += count;
         CheckQuestCompletion();
     }
-
     public void AddCharactersSummoned(int count)
     {
         charactersSummoned += count;
         CheckQuestCompletion();
     }
-
     public void AddCharactersEnhanced(int count)
     {
         charactersEnhanced += count;
         CheckQuestCompletion();
     }
-
     private void UpdateDiamondsUI()
     {
         if (diamondsText != null)
@@ -109,7 +98,6 @@ public class MoneyManager : MonoBehaviour
             diamondsText.text = "Diamonds: " + diamonds.ToString();
         }
     }
-
     private void UpdateMoneyUI()
     {
         if (moneyText != null)
@@ -117,7 +105,6 @@ public class MoneyManager : MonoBehaviour
             moneyText.text = "Money: " + money.ToString();
         }
     }
-
     public void CheckQuestCompletion()
     {
         if (money >= 500)

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: dog
   m_EditorClassIdentifier: 
   characterName: dog
-  grade: 1
+  grade: 0
   characterSprite: {fileID: 21300000, guid: 86350ef6c6c55474283512c8e7c6c410, type: 3}
   attackPower: 20
   attackSpeed: 1

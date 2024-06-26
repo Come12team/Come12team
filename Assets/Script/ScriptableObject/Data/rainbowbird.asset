@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: rainbowbird
   m_EditorClassIdentifier: 
   characterName: rainbowbird
-  grade: 3
+  grade: 0
   characterSprite: {fileID: 21300000, guid: 97dd5b66eb192c64382589aeffc62b1a, type: 3}
   attackPower: 20
   attackSpeed: 2

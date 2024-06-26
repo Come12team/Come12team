@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: koala
   m_EditorClassIdentifier: 
   characterName: koala
-  grade: 1
+  grade: 0
   characterSprite: {fileID: 21300000, guid: f296f2e23b36cbb409c3ee2b4d672d4b, type: 3}
   attackPower: 20
   attackSpeed: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ratserpanda
   m_EditorClassIdentifier: 
   characterName: ratserpanda
-  grade: 2
+  grade: 0
   characterSprite: {fileID: 21300000, guid: d851e8d2f530b4f48b58e79821d0fae9, type: 3}
   attackPower: 30
   attackSpeed: 1

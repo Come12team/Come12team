@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: goat
   m_EditorClassIdentifier: 
   characterName: goat
-  grade: 1
+  grade: 0
   characterSprite: {fileID: 0}
   attackPower: 20
   attackSpeed: 1

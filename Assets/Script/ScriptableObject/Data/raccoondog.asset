@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: raccoondog
   m_EditorClassIdentifier: 
   characterName: raccoondog
-  grade: 1
+  grade: 0
   characterSprite: {fileID: 0}
   attackPower: 20
   attackSpeed: 1

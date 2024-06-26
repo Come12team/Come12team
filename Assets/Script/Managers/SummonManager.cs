@@ -47,7 +47,7 @@ public class SummonManager : MonoBehaviour
         // 가챠나 다른 방식으로 유닛 이름을 결정 (랜덤하게 선택)
         int randomIndex = Random.Range(0, unitPrefabs.Length);
         GameObject selectedPrefab = unitPrefabs[randomIndex];
-        string unitName = selectedPrefab.name; // 예시로 프리팹 이름을 사용 (실제로는 데이터에서 이름을 가져와야 함)
+        string unitName = selectedPrefab.GetComponent<Character>().characterData.characterName; // 예시로 프리팹 이름을 사용 (실제로는 데이터에서 이름을 가져와야 함)
 
         // 유닛 데이터 가져오기
         CharacterData characterData = characterManager.GetCharacterDataByName(unitName);
@@ -65,7 +65,7 @@ public class SummonManager : MonoBehaviour
         {
             for (int x = 0; x < gridWidth; x++)
             {
-                if (grid[x, y] < 3)
+                if (grid[x, y] < 1)
                 {
                     // 빈 칸을 찾음
                     spawnPosition = GetPositionFromGrid(x, y);

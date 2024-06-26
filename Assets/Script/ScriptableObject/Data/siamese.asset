@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: siamese
   m_EditorClassIdentifier: 
   characterName: siamese
-  grade: 4
+  grade: 0
   characterSprite: {fileID: 21300000, guid: f32b6577125b5434f9027873fd990a34, type: 3}
   attackPower: 25
   attackSpeed: 2

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: squirrel
   m_EditorClassIdentifier: 
   characterName: squirrel
-  grade: 4
+  grade: 0
   characterSprite: {fileID: 21300000, guid: a1d57a53ca539004d8caa133685e478b, type: 3}
   attackPower: 25
   attackSpeed: 2
