@@ -913,11 +913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1484395192 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5278496121676645071, guid: fb1ad5907a99ef34abdebd195f953cea, type: 3}
-  m_PrefabInstance: {fileID: 1944803786}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1503978352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1191,6 +1186,23 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c749d6c6ac405f40bb4ccfbe05902f9, type: 3}
+--- !u!1 &1851225191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2999900523140133446, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
+  m_PrefabInstance: {fileID: 937187987550102550}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1851225193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851225191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c3b093a9513ae47b9f3e9c2f1493f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1944803786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1381,9 +1393,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 195279069}
     - target: {fileID: 5225841391169719066, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225841391169719066, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1484395192}
+      objectReference: {fileID: 1851225193}
+    - target: {fileID: 5225841391169719066, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnEnhanceAllCharactersButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225841391169719066, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7314917499289059700, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1471,6 +1495,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6241945337992416469, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1249728778}
+    - targetCorrespondingSourceObject: {fileID: 2999900523140133446, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1851225193}
   m_SourcePrefab: {fileID: 100100000, guid: ab324ce3fe6b18f47b720b785c3e94f5, type: 3}
 --- !u!1001 &1311677252802714811
 PrefabInstance:
